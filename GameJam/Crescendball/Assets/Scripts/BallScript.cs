@@ -26,20 +26,20 @@ public class BallScript : MonoBehaviour
 
     }
 
-    void OnCollisionEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         for (int i = 0; i < wall.Count; i++)
         {
-            wall[i] = GetComponent<GameObject>();
+            wall[i] = other.gameObject.GetComponent<GameObject>();
             if (wall[i] != null)
             {
                 score += 100;
                 speed = force * score;
                 speedVector = new Vector2(rb.velocity.x, rb.velocity.y);
-                rb.velocity += speedVector * speed;
+                rb.velocity *= speedVector * speed;
             }
         }
-        PlayerScript player = other.GetComponent<PlayerScript>();
+        PlayerScript player = other.gameObject.GetComponent<PlayerScript>();
         if (player != null)
         {
 
