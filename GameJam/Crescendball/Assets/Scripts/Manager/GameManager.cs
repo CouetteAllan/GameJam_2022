@@ -1,18 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    #region Instances;
+
+    private static GameManager instance;
+    public static GameManager Instance
     {
-        
+        get
+        {
+            if (instance == null)
+                Debug.LogError("GameManager Instance not found.");
+
+            return instance;
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
+    #endregion
+
+    private void OnEnable()
     {
-        
+        instance = this;
     }
+
+    public enum GameStates
+    {
+        MainMenu,
+        InGame,
+        Pause,
+        GameOver,
+        Win,
+    }
+    private GameStates currentGameState;
+
+
+
 }
