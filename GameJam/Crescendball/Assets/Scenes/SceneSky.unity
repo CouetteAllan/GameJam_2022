@@ -159,7 +159,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: 998c48ab32016af408b8916dddaa9f2d, type: 2}
+  m_Material: {fileID: 6200000, guid: 438ffbc70eb870d4ea387c0ac6e70f1a, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -180,7 +180,11 @@ MonoBehaviour:
   force: 100
   speed: 0
   score: 0
-  wall: []
+  wall:
+  - {fileID: 323551171}
+  - {fileID: 1733867696}
+  - {fileID: 1049951131}
+  - {fileID: 1030021827}
 --- !u!212 &44901793
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -296,6 +300,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &323551171 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4459136681126577761, guid: 241829bbddb796841ad539b2bfcf1a8b, type: 3}
+  m_PrefabInstance: {fileID: 4459136680896569704}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &821070449
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +358,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.41341
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -436,6 +445,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 241829bbddb796841ad539b2bfcf1a8b, type: 3}
+--- !u!1 &1030021827 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7384046286383902535, guid: 9fe77be57e16d894b9fda6e84198fb7a, type: 3}
+  m_PrefabInstance: {fileID: 1194215134}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1049951131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7384046286383902535, guid: 9fe77be57e16d894b9fda6e84198fb7a, type: 3}
+  m_PrefabInstance: {fileID: 7384046286158853203}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1183536287 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3726779303760704209, guid: 241829bbddb796841ad539b2bfcf1a8b, type: 3}
@@ -498,6 +517,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fe77be57e16d894b9fda6e84198fb7a, type: 3}
+--- !u!1 &1733867696 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4459136681126577761, guid: 241829bbddb796841ad539b2bfcf1a8b, type: 3}
+  m_PrefabInstance: {fileID: 843176921}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1764003191 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3504762349197421259, guid: 9fe77be57e16d894b9fda6e84198fb7a, type: 3}
