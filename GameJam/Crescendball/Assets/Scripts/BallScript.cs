@@ -7,9 +7,9 @@ public class BallScript : MonoBehaviour
     [SerializeField] GameObject ball;
     public float force;
     public float speed;
-    public int score;
+    int score;
     Rigidbody2D rb;
-    Vector2 speedVector;
+    Vector2 direction;
     Vector2 dir = new Vector2(1, -1);
     [SerializeField] List<GameObject> wall = new List<GameObject>();
 
@@ -27,18 +27,22 @@ public class BallScript : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D other)
-    {
-        for (int i = 0; i < wall.Count; i++)
+    {      
+        if ( other.gameObject.layer == 6)
         {
-            wall[i] = other.gameObject.GetComponent<GameObject>();
-            if (wall[i] != null)
+            Transform transform = other.gameObject.GetComponent<Transform>();
+            if (transform.localScale.x > transform.localScale.y)
             {
-                score += 100;
-                speed = force * score;
-                speedVector = new Vector2(rb.velocity.x, rb.velocity.y);
-                rb.velocity *= speedVector * speed;
+
             }
+            score = GameManager.Instance.GetScore();
+            GameManager.Instance.SetScore(score += 100);
+            //speed = force * score;
+            direction = rb.velocity.normalized;
+            //rb.velocity *= direction * speed / 100;
+            Debug.Log("bite");
         }
+
         PlayerScript player = other.gameObject.GetComponent<PlayerScript>();
         if (player != null)
         {
