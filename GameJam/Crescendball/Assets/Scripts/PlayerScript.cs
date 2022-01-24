@@ -14,12 +14,15 @@ public class PlayerScript : MonoBehaviour
     private float horizontal;
 
     private Rigidbody2D rgbd2D;
+    public GameObject hitZone;
 
     // Start is called before the first frame update
     void Start()
     {
         hp = 3;
         this.rgbd2D = this.GetComponent<Rigidbody2D>();
+        hitZone.SetActive(false);
+        GameManager.Instance.SetPlayer(this);
     }
 
     // Update is called once per frame
@@ -32,7 +35,7 @@ public class PlayerScript : MonoBehaviour
     {
         Vector2 pos = rgbd2D.position;
         pos += new Vector2(horizontal, vertical) * speed / 60.0f;
-        rgbd2D.position = pos;
+        rgbd2D.MovePosition(pos);
     }
 
     private void ReadingInput()
@@ -41,11 +44,16 @@ public class PlayerScript : MonoBehaviour
         vertical = Input.GetAxis("Vertical");
         horizontal = Input.GetAxis("Horizontal");
 
-
     }
 
     private void Hit()
     {
-        throw new NotImplementedException();
+        hitZone.SetActive(true);
+    }
+
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireCube((Vector2)hitZone.transform.position + hitZone.GetComponent<BoxCollider2D>().offset, hitZone.GetComponent<BoxCollider2D>().size);
     }
 }

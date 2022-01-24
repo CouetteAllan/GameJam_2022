@@ -39,5 +39,14 @@ public class GameManager : MonoBehaviour
     private GameStates currentGameState;
 
 
+    public int score;
+
+
+    private PlayerScript player;
+
+    public void SetPlayer(PlayerScript obj)
+    {
+        player = obj;
+    }
 
 }
