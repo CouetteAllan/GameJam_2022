@@ -19,6 +19,13 @@ public class PlayerScript : MonoBehaviour
     public GameObject hitZone;
 
     bool hitBall = false;
+    public bool HitBall {
+        get => hitBall;
+        set {
+            hitBall = value;
+        }
+    }
+
     float timerCooldown;
     float hitTimer = 0.3f;
 
