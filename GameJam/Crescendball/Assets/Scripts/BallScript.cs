@@ -5,9 +5,9 @@ using UnityEngine;
 public class BallScript : MonoBehaviour
 {
     [SerializeField] GameObject ball;
-    [SerializeField] float force;
-    [SerializeField] float speed;
-    [SerializeField] int score;
+    public float force;
+    public float speed;
+    public int score;
     Rigidbody2D rb;
     Vector2 speedVector;
     Vector2 dir = new Vector2(1, -1);
