@@ -12,16 +12,17 @@ public class BallScript : MonoBehaviour
     Vector2                             direction;
     Vector2                             dir = new Vector2(1, -1);
     Vector2                             lastGoodVel;
+
     [SerializeField] List<GameObject> wall = new List<GameObject>();
 
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = ball.GetComponent<Rigidbody2D>();
         rb.AddForce(dir * force);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if(rb.velocity.x != 0 && rb.velocity.y != 0)
@@ -34,6 +35,7 @@ public class BallScript : MonoBehaviour
     {      
         if ( other.gameObject.layer == 6)
         {
+
             direction = rb.velocity.normalized;
             Transform transform = other.gameObject.GetComponent<Transform>();
 
@@ -46,6 +48,7 @@ public class BallScript : MonoBehaviour
             {
                 rb.velocity = new Vector2(-lastGoodVel.x, lastGoodVel.y);
             }
+
 
             score = GameManager.Instance.GetScore();
             GameManager.Instance.SetScore(score += 100);
