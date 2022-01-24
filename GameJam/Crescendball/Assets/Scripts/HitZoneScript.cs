@@ -23,7 +23,7 @@ public class HitZoneScript : MonoBehaviour
         {
             BallScript ball = collision.gameObject.GetComponent<BallScript>();
 
-            
+            ball.GetComponent<Rigidbody2D>().velocity = -ball.GetComponent<Rigidbody2D>().velocity * 1.05f;
         }
     }
 }

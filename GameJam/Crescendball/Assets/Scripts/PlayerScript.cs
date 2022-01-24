@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     [SerializeField] private float speed = 25;
+    bool facingRight = true;
+
 
     private int hp;
     public int Hp { get => hp; set => hp = value; }
@@ -39,6 +41,10 @@ public class PlayerScript : MonoBehaviour
         {
             Hit(false);
         }
+
+
+
+
     }
 
     private void FixedUpdate()
@@ -56,8 +62,17 @@ public class PlayerScript : MonoBehaviour
             timerCooldown = hitBall ? 0.3f : 1.0f;
             hitTimer = 0.3f;
         }
+
         vertical = Input.GetAxis("Vertical");
         horizontal = Input.GetAxis("Horizontal");
+        if (horizontal < 0 && facingRight)
+        {
+            Flip();
+        }
+        if (horizontal > 0 && !facingRight)
+        {
+            Flip();
+        }
 
     }
 
@@ -68,8 +83,15 @@ public class PlayerScript : MonoBehaviour
     }
 
 
-    private void OnDrawGizmosSelected()
+
+    private void Flip() //retourne le sprite
     {
-        Gizmos.DrawWireCube((Vector2)hitZone.transform.position + hitZone.GetComponent<BoxCollider2D>().offset, hitZone.GetComponent<BoxCollider2D>().size);
+
+        facingRight = !facingRight;
+
+
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }
