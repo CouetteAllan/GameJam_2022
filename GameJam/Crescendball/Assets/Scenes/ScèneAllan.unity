@@ -255,7 +255,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 20
   field of view: 60
   orthographic: 1
   orthographic size: 5
@@ -680,37 +680,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5055722654366966524, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
-      propertyPath: m_Size.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5055722654366966524, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
-      propertyPath: m_Size.y
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5055722654366966524, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5055722654366966524, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5055722654380712732, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.37
-      objectReference: {fileID: 0}
     - target: {fileID: 5055722654380712738, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5055722654532106642, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5055722654532106642, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
