@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HitZoneScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Vector2 direction;
     void Start()
     {
         
@@ -17,13 +17,15 @@ public class HitZoneScript : MonoBehaviour
     }
 
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Ball")
         {
             BallScript ball = collision.gameObject.GetComponent<BallScript>();
 
-            ball.GetComponent<Rigidbody2D>().velocity = -ball.GetComponent<Rigidbody2D>().velocity * 1.05f;
+            ball.GetComponent<Rigidbody2D>().velocity = -ball.GetComponent<Rigidbody2D>().velocity * 3f;
+            int score = GameManager.Instance.GetScore();
+            GameManager.Instance.SetScore( score += 200);
         }
     }
 }
