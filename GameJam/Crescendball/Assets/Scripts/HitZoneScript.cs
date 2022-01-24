@@ -21,6 +21,8 @@ public class HitZoneScript : MonoBehaviour
     {
         if(collision.tag == "Ball")
         {
+            BallScript ball = collision.gameObject.GetComponent<BallScript>();
+
             
         }
     }

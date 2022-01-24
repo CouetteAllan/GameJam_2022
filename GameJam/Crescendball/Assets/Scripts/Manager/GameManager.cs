@@ -49,4 +49,14 @@ public class GameManager : MonoBehaviour
         player = obj;
     }
 
+    public int GetScore()
+    {
+        return this.score;
+    }
+    
+    public void SetScore(int score)
+    {
+        this.score = score;
+    }
+
 }
