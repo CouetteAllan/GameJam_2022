@@ -16,6 +16,10 @@ public class PlayerScript : MonoBehaviour
     private Rigidbody2D rgbd2D;
     public GameObject hitZone;
 
+    bool hitBall = false;
+    float timerCooldown;
+    float hitTimer = 0.3f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +33,12 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         ReadingInput();
+        timerCooldown -= Time.deltaTime;
+        hitTimer -= Time.deltaTime;
+        if(hitTimer <= 0)
+        {
+            Hit(false);
+        }
     }
 
     private void FixedUpdate()
@@ -40,15 +50,21 @@ public class PlayerScript : MonoBehaviour
 
     private void ReadingInput()
     {
-        //Hit(); //frapper la balle
+        if (Input.GetKeyDown(KeyCode.Space) && timerCooldown <= 0)
+        {
+            Hit(true); //frapper la balle
+            timerCooldown = hitBall ? 0.3f : 1.0f;
+            hitTimer = 0.3f;
+        }
         vertical = Input.GetAxis("Vertical");
         horizontal = Input.GetAxis("Horizontal");
 
     }
 
-    private void Hit()
+    private void Hit(bool hit)
     {
-        hitZone.SetActive(true);
+        hitZone.SetActive(hit);
+
     }
 
 
