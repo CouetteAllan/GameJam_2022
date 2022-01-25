@@ -59,7 +59,9 @@ public class GameManager : MonoBehaviour
     public bool waiting = false;
 
     public int score;
+    public int mult;
 
+    public Transform scorePopUp;
     private PlayerScript player;
     public void SetPlayer(PlayerScript obj)
     {
@@ -81,6 +83,17 @@ public class GameManager : MonoBehaviour
     public void SetScore(int score)
     {
         this.score = score;
+    }
+
+
+    public int GetMult()
+    {
+        return this.mult;
+    }
+
+    public void SetMult(int mult)
+    {
+        this.mult = mult;
     }
 
 
