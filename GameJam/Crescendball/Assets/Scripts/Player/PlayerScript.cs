@@ -10,7 +10,7 @@ public class PlayerScript : MonoBehaviour
     bool facingRight = true;
 
 
-    private int hp = 3;
+    private int hp = 5;
     public int Hp { get => hp; set => hp = value; }
 
     bool alive = true;
@@ -51,7 +51,7 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        hp = 3;
+        hp = 5;
         this.rgbd2D = this.GetComponent<Rigidbody2D>();
 
         anim = this.GetComponent<Animator>();
@@ -63,13 +63,16 @@ public class PlayerScript : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.SetPlayer(this);
-        hitZone.SetActive(false);
+        Shoot(false);
 
     }
     void Update()
     {
         if (!Alive)
         {
+            GameManager.Instance.SetPlayer(null);
+            action.Player.Shoot.performed -= Shoot_performed;
+            action.Player.Movement.performed -= Movement_performed;
             Destroy(gameObject);
             return;
 
@@ -85,12 +88,14 @@ public class PlayerScript : MonoBehaviour
 
         Vector2 direction = action.Player.Movement.ReadValue<Vector2>().normalized;
 
-        if (direction.x > 0 || direction.y > 0)
+        if (direction.x != 0 || direction.y != 0)
         {
             lastGoodDirection = direction;
             Debug.Log(lastGoodDirection);
 
         }
+
+        UIManager.Instance.UpdateScore(GameManager.Instance.GetScore());
     }
 
     private void FixedUpdate()
@@ -139,7 +144,8 @@ public class PlayerScript : MonoBehaviour
 
     private void Shoot(bool hit)
     {
-        hitZone.SetActive(hit);
+        hitZone.GetComponent<BoxCollider2D>().enabled = hit;
+        hitZone.GetComponent<SpriteRenderer>().enabled = hit;
 
     }
 
@@ -164,6 +170,25 @@ public class PlayerScript : MonoBehaviour
             hp--;
             invincibleTimer = 1.8f;
             anim.SetTrigger("Hit");
+            StartCoroutine(Fade(1.8f));
         }
+    }
+
+    IEnumerator Fade(float duration)
+    {
+        anim.SetLayerWeight(1, 1);
+
+        this.GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(duration);
+
+        anim.SetLayerWeight(1, 0);
+        this.GetComponent<BoxCollider2D>().enabled = true;
+
+
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawLine(hitZone.transform.position, (Vector2)hitZone.transform.position + LastGoodDirection);
     }
 }

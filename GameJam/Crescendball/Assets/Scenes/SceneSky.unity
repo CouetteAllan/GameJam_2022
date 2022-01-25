@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843dd2a55554f134abc10c5d544381f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score_text: {fileID: 0}
 --- !u!114 &252381924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,6 +382,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5055722654366966272, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5055722654366966273, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -565,7 +570,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
       propertyPath: force
-      value: 400
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
       propertyPath: wall.Array.data[0]

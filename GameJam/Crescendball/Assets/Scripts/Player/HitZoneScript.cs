@@ -37,18 +37,27 @@ public class HitZoneScript : MonoBehaviour
         if(collision.tag == "Ball")
         {
             hit = true;
-            GameManager.Instance.Stop(0.4f);
-
+            GameManager.Instance.Stop(0.6f);
 
             BallScript ball = collision.gameObject.GetComponent<BallScript>();
-            float velocityMagnitude = ball.GetComponent<Rigidbody2D>().velocity.magnitude;
-            Vector2 dir = player.LastGoodDirection;
-            var magnitude = ball.GetComponent<Rigidbody2D>().velocity.magnitude;
-            ball.GetComponent<Rigidbody2D>().velocity = dir * magnitude * 2;
+            StartCoroutine(AimingDir(0.6f,ball));
+            //Vector2 dir = player.LastGoodDirection;
+            //var magnitude = ball.GetComponent<Rigidbody2D>().velocity.magnitude;
+            //ball.GetComponent<Rigidbody2D>().velocity = dir * magnitude * 1.25f;
             int score = GameManager.Instance.GetScore();
             GameManager.Instance.SetScore( score += 200);
             player.HitBall = true;
         }
+    }
+
+    IEnumerator AimingDir(float duration,BallScript ball)
+    {
+        var magnitude = ball.GetComponent<Rigidbody2D>().velocity.magnitude;
+
+        yield return new WaitForSecondsRealtime(duration);
+        Vector2 dir = player.LastGoodDirection;
+        ball.GetComponent<Rigidbody2D>().velocity = dir * magnitude * 1.25f;
+
     }
 
 }
