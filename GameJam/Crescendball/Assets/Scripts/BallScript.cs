@@ -77,7 +77,6 @@ public class BallScript : MonoBehaviour
     {      
         if ( other.gameObject.layer == 6)
         {
-            PlayerHitTheBall = false;
 
             multiplierDuo++;
             Transform transform = other.gameObject.GetComponent<Transform>();
@@ -118,7 +117,7 @@ public class BallScript : MonoBehaviour
 
             memoire = multiplier;
 
-            if (countRebond >= 26 && PlayerHitTheBall == false)
+            if (countRebond >= 18 && PlayerHitTheBall == false)
             {
                 Debug.Log("vitesse maximale");
                 

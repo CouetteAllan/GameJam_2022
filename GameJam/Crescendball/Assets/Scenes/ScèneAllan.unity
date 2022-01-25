@@ -535,10 +535,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball
       objectReference: {fileID: 0}
-    - target: {fileID: 3569760645857013385, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3569760645857013429, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -584,29 +580,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
-      propertyPath: force
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
-      propertyPath: speed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
       propertyPath: centerTransform
       value: 
       objectReference: {fileID: 727649096}
-    - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
-      propertyPath: originalSpeed.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
-      propertyPath: originalSpeed.y
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
-      propertyPath: ballScoringAnimator
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
 --- !u!1001 &1773163105
@@ -702,7 +678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score_text: {fileID: 571213381}
-  mult_text: {fileID: 0}
+  mult_text: {fileID: 2142132498}
 --- !u!114 &1844828608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -746,6 +722,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camAnimator: {fileID: 586460066}
+--- !u!114 &2142132498 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1355755065204914140, guid: 225a65cef255c17469ee0404253c027a, type: 3}
+  m_PrefabInstance: {fileID: 8569214080746168759}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5055722653460099708
 PrefabInstance:
   m_ObjectHideFlags: 0
