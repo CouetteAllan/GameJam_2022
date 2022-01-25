@@ -585,12 +585,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
       propertyPath: force
-      value: 150
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
+      propertyPath: speed
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
       propertyPath: centerTransform
       value: 
       objectReference: {fileID: 727649096}
+    - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
+      propertyPath: originalSpeed.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
+      propertyPath: originalSpeed.y
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
       propertyPath: ballScoringAnimator
       value: 

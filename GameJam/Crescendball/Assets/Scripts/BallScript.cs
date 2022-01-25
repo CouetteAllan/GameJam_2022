@@ -16,15 +16,15 @@ public class BallScript : MonoBehaviour
     public int                          score;
 
     public bool                         hit;
-    private bool                        playerHitTheBall;
-    public bool PlayerHitTheBall { get => playerHitTheBall; set => playerHitTheBall = value; }
+    private bool                        playerHitTheBall = false;
+    public bool                         PlayerHitTheBall { get => playerHitTheBall; set => playerHitTheBall = value; }
 
     public Vector2                      originalSpeed = new Vector2(2, -2);
     public Vector2                             lastGoodVel;
     private Animator                    anim;
     public Transform                    centerTransform;
     private int                         scoreBonus = 100;
-    private int multiplierDuo = 0;
+    private int multiplierDuo = 1;
 
     private void Awake()
     {
@@ -38,8 +38,9 @@ public class BallScript : MonoBehaviour
         multiplier = 0;
         countRebond = 0;
         rb = ball.GetComponent<Rigidbody2D>();
-        rb.AddForce(originalSpeed * force);
+        rb.AddForce(originalSpeed * 150);
         multiplier = 1;
+        speed = force;
     }
 
 
@@ -49,6 +50,16 @@ public class BallScript : MonoBehaviour
         if(rb.velocity.x != 0 || rb.velocity.y != 0)
         {
             lastGoodVel = rb.velocity;
+            if (PlayerHitTheBall)
+            {
+                Debug.Log(lastGoodVel);
+            }
+        }
+
+        if (PlayerHitTheBall)
+        {
+            speed *= 1.2f;
+            PlayerHitTheBall = false;
         }
 
         /*if((rb.velocity.x >= -0.2 && rb.velocity.x <= 0.2) || (rb.velocity.y >= -0.2 && rb.velocity.y <= 0.2))
@@ -71,13 +82,12 @@ public class BallScript : MonoBehaviour
             multiplierDuo++;
             Transform transform = other.gameObject.GetComponent<Transform>();
 
-            speed = Mathf.Clamp(((force / 30) + (multiplier /5)), 1.0f, 40f);
-    
+            
                   //REBONDS
             if (transform.localScale.x > transform.localScale.y)
             {
                 
-                rb.velocity = new Vector2 (Mathf.Clamp(lastGoodVel.normalized.x * Mathf.Abs(originalSpeed.x) * speed, -60, 60), Mathf.Clamp(-lastGoodVel.normalized.y * Mathf.Abs(originalSpeed.y) * speed, -60, 60)) ;
+                rb.velocity = new Vector2 (Mathf.Clamp(lastGoodVel.normalized.x * Mathf.Abs(originalSpeed.x) * speed, -55, 55), Mathf.Clamp(-lastGoodVel.normalized.y * Mathf.Abs(originalSpeed.y) * speed, -55, 55)) ;
                 if(lastGoodVel.y < rb.velocity.y)
                 {
                     anim.SetTrigger("Splash Up");
@@ -87,12 +97,12 @@ public class BallScript : MonoBehaviour
                     anim.SetTrigger("Splash Down");
                 }
 
-                anim.SetFloat("Speed", speed);
+                anim.SetFloat("Speed", speed / 2);
             }
 
             if (transform.localScale.y > transform.localScale.x)
             {
-                rb.velocity = new Vector2(Mathf.Clamp(-lastGoodVel.normalized.x * Mathf.Abs(originalSpeed.x)* speed, -60, 60) , Mathf.Clamp(lastGoodVel.normalized.y * Mathf.Abs(originalSpeed.y) * speed, -60, 60));
+                rb.velocity = new Vector2(Mathf.Clamp(-lastGoodVel.normalized.x * Mathf.Abs(originalSpeed.x)* speed, -55, 55) , Mathf.Clamp(lastGoodVel.normalized.y * Mathf.Abs(originalSpeed.y) * speed, -55, 55));
                 if (lastGoodVel.x < rb.velocity.x)
                 {
                     anim.SetTrigger("Splash Right");
@@ -108,7 +118,7 @@ public class BallScript : MonoBehaviour
 
             memoire = multiplier;
 
-            if (countRebond >= 20 && PlayerHitTheBall == false)
+            if (countRebond >= 26 && PlayerHitTheBall == false)
             {
                 Debug.Log("vitesse maximale");
                 
@@ -117,21 +127,21 @@ public class BallScript : MonoBehaviour
                 countRebond = 0;
                 int totalScore = scoreBonus * ((int)memoire * 2);
                 GameManager.Instance.SetScore(score + totalScore);
-                PopUpScore.Create(rb.position, totalScore,countRebond);
+                PopUpScore.Create(rb.position, totalScore,(int)multiplier);
 
             } else 
             { 
                 countRebond++;
-                if(multiplierDuo == 2)
+                int totalScore = scoreBonus * (int)memoire;
+                PopUpScore.Create(rb.position, totalScore, (int)multiplier);
+                if (multiplierDuo == 3)
                 {
 
                     multiplier++;
-                    multiplierDuo = 0;
+                    multiplierDuo = 1;
+                    speed += multiplier / 6;
                 }
-                int totalScore = scoreBonus * (int)memoire;
                 GameManager.Instance.SetScore(score + totalScore);
-                PopUpScore.Create(rb.position, totalScore,countRebond);
-                GameManager.Instance.SetMult((int)multiplier);
 
 
             }
