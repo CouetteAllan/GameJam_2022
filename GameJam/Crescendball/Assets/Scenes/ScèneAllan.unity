@@ -322,7 +322,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727649095}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.22, y: -1.21, z: 0}
+  m_LocalPosition: {x: -0.41, y: -1.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -585,7 +585,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
       propertyPath: force
-      value: 400
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
+      propertyPath: ballScoringAnimator
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
@@ -696,6 +700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waiting: 0
   score: 0
+  scorePopUp: {fileID: 5408756720024738506, guid: 2ec79d1ade92e1c49a689bbd8f8c66c5, type: 3}
 --- !u!4 &1844828609
 Transform:
   m_ObjectHideFlags: 0
