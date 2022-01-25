@@ -42,6 +42,7 @@ public class HitZoneScript : MonoBehaviour
         {
             hit = true;
             GameManager.Instance.Stop(0.6f);
+            arrowSprite.enabled = true;
 
             BallScript ball = collision.gameObject.GetComponent<BallScript>();
             StartCoroutine(AimingDir(0.6f,ball));
@@ -59,6 +60,7 @@ public class HitZoneScript : MonoBehaviour
         yield return new WaitForSecondsRealtime(duration);
         Vector2 dir = player.LastGoodDirection;
         ball.GetComponent<Rigidbody2D>().velocity = dir * magnitude * 1.25f;
+        arrowSprite.enabled = false;
 
     }
 

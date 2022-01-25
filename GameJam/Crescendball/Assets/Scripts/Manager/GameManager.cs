@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     }
 
+
     #endregion
 
     private void OnEnable()
@@ -37,6 +38,23 @@ public class GameManager : MonoBehaviour
         Win,
     }
     private GameStates currentGameState;
+    public GameStates currentGameStates 
+    {
+        get => currentGameState;
+        set
+        {
+            currentGameState = value;
+            switch (currentGameState)
+            {
+                case GameStates.MainMenu:
+                    break;
+
+
+            }
+
+
+        }
+    }
 
     public bool waiting = false;
 
