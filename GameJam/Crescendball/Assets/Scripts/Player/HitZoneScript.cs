@@ -63,7 +63,7 @@ public class HitZoneScript : MonoBehaviour
         ball.countRebond = 0;
         int totalScore = 100 * ((int)ball.multiplier * 2);
         GameManager.Instance.SetScore(GameManager.Instance.GetScore() + totalScore);
-        PopUpScore.Create(GameManager.Instance.GetPlayer().transform.position + Vector3.up * 5, totalScore, (int)ball.multiplier);
+        PopUpScore.Create(GameManager.Instance.GetPlayer().transform.position + Vector3.up * 2, totalScore, (int)ball.multiplier);
 
     }
 

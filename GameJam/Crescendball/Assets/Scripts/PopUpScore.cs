@@ -15,14 +15,14 @@ public class PopUpScore : MonoBehaviour
     }
 
 
-    public static PopUpScore Create(Vector2 pos,int scoreAmount,int multiplier)
+    public static PopUpScore Create(Vector2 pos,int scoreAmount, int multiplier = 20, bool jackpot = false)
     {
         Transform scoreTransform = Instantiate(GameManager.Instance.scorePopUp,pos,Quaternion.identity);
         PopUpScore score = scoreTransform.GetComponent<PopUpScore>();
         score.Setup(scoreAmount,multiplier);
         return score;
     }
-    public void Setup(int scoreAmount,int multiplier)
+    public void Setup(int scoreAmount, int multiplier = 20, bool jackpot = false)
     {
         text.SetText(scoreAmount.ToString());
         if(multiplier < 3)
@@ -41,6 +41,10 @@ public class PopUpScore : MonoBehaviour
         {
             text.fontSize = 16;
             text.color = Color.red;
+            if (jackpot)
+            {
+
+            }
         }
     }
 

@@ -179,12 +179,14 @@ public class PlayerScript : MonoBehaviour
     {
         if(collision.gameObject.tag == "Ball" && invincibleTimer <= 0)
         {
+            BallScript ball = collision.gameObject.GetComponent<BallScript>();
             GameManager.Instance.Stop(0.2f);
             hp--;
             invincibleTimer = 1.8f;
             anim.SetTrigger("Hit");
             shake.ShakeRight();
             StartCoroutine(Fade(1.8f));
+            ball.multiplier = 1;
         }
     }
 
