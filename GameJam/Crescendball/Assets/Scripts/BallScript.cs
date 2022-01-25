@@ -111,23 +111,29 @@ public class BallScript : MonoBehaviour
             {
                 countRebond += 0;
                 
-            } else if (countRebond >= 10 && PlayerHitTheBall)
+            }
+
+            else if (countRebond >= 10 && PlayerHitTheBall)
             {
                 countRebond = 0;
                 int totalScore = scoreBonus * ((int)memoire * 2);
                 GameManager.Instance.SetScore(score + totalScore);
-                PopUpScore.Create(rb.position, totalScore,countRebond);
+                PopUpScore.Create(rb.position, totalScore);
 
-            } else 
+            }
+
+
+
+            else 
             { 
                 countRebond++;
                 multiplier++;
                 int totalScore = scoreBonus * (int)memoire;
                 GameManager.Instance.SetScore(score + totalScore);
-                PopUpScore.Create(rb.position, totalScore,countRebond);
+                PopUpScore.Create(rb.position, totalScore);
 
             }
-            GameManager.Instance.SetMult((int)multiplier);
+
 
 
 
