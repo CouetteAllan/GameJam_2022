@@ -14,13 +14,22 @@ public class BallScript : MonoBehaviour
     public int                          score;
 
     public bool                         hit;
-    
-    public Vector2                      originalSpeed;
+    private bool                        playerHitTheBall;
+    public bool PlayerHitTheBall { get => playerHitTheBall; set => playerHitTheBall = value; }
+
+    public Vector2              originalSpeed = new Vector2(2, -2);
     Vector2                             dir = new Vector2(1, -1);
     Vector2                             lastGoodVel;
-
+    private Animator                    anim;
     [SerializeField] List<GameObject> wall = new List<GameObject>();
+    public Transform centerTransform;
 
+
+    private void Awake()
+    {
+        anim = this.GetComponent<Animator>();
+        centerTransform = GameObject.Find("Center").GetComponent<Transform>();
+    }
 
     void Start()
     {
@@ -28,8 +37,7 @@ public class BallScript : MonoBehaviour
         multiplyer = 0;
         countRebond = 0;
         rb = ball.GetComponent<Rigidbody2D>();
-        rb.AddForce(dir * force);
-        originalSpeed = rb.velocity;
+        rb.AddForce(originalSpeed * force);
     }
 
 
@@ -39,24 +47,53 @@ public class BallScript : MonoBehaviour
         {
             lastGoodVel = rb.velocity;
         }
+
+        if((rb.velocity.x >= -0.2 && rb.velocity.x <= 0.2) || (rb.velocity.y >= -0.2 && rb.velocity.y <= 0.2))
+        {
+            if (!PlayerHitTheBall)
+            {
+                rb.velocity = (Vector2)centerTransform.position - rb.position * rb.velocity.magnitude;
+                rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -60, 60), Mathf.Clamp(rb.velocity.y, -60, 60));
+                
+            }
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {      
         if ( other.gameObject.layer == 6)
         {
+            PlayerHitTheBall = false;
             Transform transform = other.gameObject.GetComponent<Transform>();
 
-            speed = Mathf.Clamp(((force / 100) + (multiplyer /10)), 1.0f, 1.8f);
+            speed = Mathf.Clamp(((force / 20) + (multiplyer /5)), 1.0f, 40f);
 
             if (transform.localScale.x > transform.localScale.y)
             {
-                rb.velocity = new Vector2 (Mathf.Clamp(lastGoodVel.x, -60, 60), Mathf.Clamp(-lastGoodVel.y, -60, 60)) * speed;
+                rb.velocity = new Vector2 (Mathf.Clamp(lastGoodVel.normalized.x * Mathf.Abs(originalSpeed.x) * speed, -60, 60), Mathf.Clamp(-lastGoodVel.normalized.y * Mathf.Abs(originalSpeed.y) * speed, -60, 60)) ;
+                if(lastGoodVel.y < rb.velocity.y)
+                {
+                    anim.SetTrigger("Splash Up");
+                }
+                else
+                {
+                    anim.SetTrigger("Splash Down");
+                }
+
+                anim.SetFloat("Speed", speed);
             }
 
             if (transform.localScale.y > transform.localScale.x)
             {
-                rb.velocity = new Vector2(Mathf.Clamp(-lastGoodVel.x, -60, 60) , Mathf.Clamp(lastGoodVel.y, -60, 60)) * speed;
+                rb.velocity = new Vector2(Mathf.Clamp(-lastGoodVel.normalized.x * Mathf.Abs(originalSpeed.x)* speed, -60, 60) , Mathf.Clamp(lastGoodVel.normalized.y * Mathf.Abs(originalSpeed.y) * speed, -60, 60));
+                if (lastGoodVel.x < rb.velocity.x)
+                {
+                    anim.SetTrigger("Splash Right");
+                }
+                else
+                {
+                    anim.SetTrigger("Splash Left");
+                }
             }
 
 
@@ -67,7 +104,7 @@ public class BallScript : MonoBehaviour
                 countRebond += 0;
                 GameManager.Instance.SetScore(score += 0);
                 memoire = multiplyer;
-                multiplyer = 1;
+                //multiplyer = 1;
             }
 
             else if (countRebond >= 10 && hit == true)
