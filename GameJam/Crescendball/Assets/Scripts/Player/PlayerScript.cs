@@ -193,7 +193,7 @@ public class PlayerScript : MonoBehaviour
         anim.SetLayerWeight(1, 1);
 
         this.GetComponent<BoxCollider2D>().enabled = false;
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSecondsRealtime(duration);
 
         anim.SetLayerWeight(1, 0);
         this.GetComponent<BoxCollider2D>().enabled = true;

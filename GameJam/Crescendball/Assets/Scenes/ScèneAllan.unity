@@ -206,6 +206,7 @@ GameObject:
   - component: {fileID: 586460065}
   - component: {fileID: 586460064}
   - component: {fileID: 586460063}
+  - component: {fileID: 586460066}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -278,6 +279,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &586460066
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586460062}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6aa71dd5a3f121349b336c92b6a631f0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &727649095
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,6 +661,7 @@ GameObject:
   - component: {fileID: 1844828609}
   - component: {fileID: 1844828608}
   - component: {fileID: 1844828607}
+  - component: {fileID: 1844828611}
   m_Layer: 0
   m_Name: Managers
   m_TagString: GameManager
@@ -689,6 +710,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1844828611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844828606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a1bca70b8777c148a8bdc22a9902852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camAnimator: {fileID: 586460066}
 --- !u!1001 &5055722653460099708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -743,6 +777,22 @@ PrefabInstance:
     - target: {fileID: 5055722654366966273, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055722654532106641, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055722654532106641, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055722654532106641, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055722654532106641, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
