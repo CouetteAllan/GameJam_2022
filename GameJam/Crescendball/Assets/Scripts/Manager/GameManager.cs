@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     }
     private GameStates currentGameState;
 
-    bool waiting = false;
+    public bool waiting = false;
 
     public int score;
 

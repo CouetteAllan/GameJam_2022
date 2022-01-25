@@ -6,6 +6,14 @@ public class HitZoneScript : MonoBehaviour
 {
 
     bool hit;
+    private PlayerScript player;
+    private Vector2 lastGoodDirection = new Vector2(1, 1);
+    private float timer = 0.4f;
+
+    private void Awake()
+    {
+
+    }
     void Start()
     {
         
@@ -14,7 +22,21 @@ public class HitZoneScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        if(player == null)
+        {
+            player = GameManager.Instance.GetPlayer();
+        }
+
+        Vector2 direction = player.action.Player.Movement.ReadValue<Vector2>().normalized;
+        Debug.Log(direction);
+
+        if (direction.x > 0 || direction.y > 0)
+        {
+            lastGoodDirection = direction;
+
+        }
+        timer -= Time.deltaTime;
     }
 
 
@@ -23,23 +45,23 @@ public class HitZoneScript : MonoBehaviour
         if(collision.tag == "Ball")
         {
             hit = true;
-            BallScript ball = collision.gameObject.GetComponent<BallScript>();
+            GameManager.Instance.Stop(0.4f);
 
-            ball.GetComponent<Rigidbody2D>().velocity = -ball.GetComponent<Rigidbody2D>().velocity * 3f;
+
+            BallScript ball = collision.gameObject.GetComponent<BallScript>();
+            float velocityMagnitude = ball.GetComponent<Rigidbody2D>().velocity.magnitude;
+            Vector2 dir = lastGoodDirection;
+            var magnitude = ball.GetComponent<Rigidbody2D>().velocity.magnitude;
+            ball.GetComponent<Rigidbody2D>().velocity = dir * magnitude * 2;
             int score = GameManager.Instance.GetScore();
             GameManager.Instance.SetScore( score += 200);
-            GameManager.Instance.GetPlayer().HitBall = true;
-            GameManager.Instance.Stop(0.4f);
+            player.HitBall = true;
         }
     }
 
     private Vector2 Direction()
     {
-        PlayerScript player = GameManager.Instance.GetPlayer();
-        Vector2 pos = player.transform.position;
-        Vector2 direction = player.transform.right;
-
-
+        Vector2 direction = player.action.Player.Movement.ReadValue<Vector2>().normalized;
 
         return direction;
     }

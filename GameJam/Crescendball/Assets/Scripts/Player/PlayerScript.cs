@@ -18,30 +18,76 @@ public class PlayerScript : MonoBehaviour
 
     private Rigidbody2D rgbd2D;
     public GameObject hitZone;
-    private PlayerInput playerInput;
+    public PlayerInputAction action;
 
     bool hitBall = false;
+    float hitTimer = 0.3f;
     public bool HitBall {
         get => hitBall;
         set {
             hitBall = value;
+            if (HitBall)
+            {
+                hitTimer = 0;
+            }
         }
     }
 
     float timerCooldown;
-    float hitTimer = 0.3f;
+    float invincibleTimer = 1.8f;
 
     // Start is called before the first frame update
     void Awake()
     {
         hp = 3;
         this.rgbd2D = this.GetComponent<Rigidbody2D>();
-        playerInput = this.GetComponent<PlayerInput>();
         
 
-        PlayerInputAction action = new PlayerInputAction();
+        action = new PlayerInputAction();
         action.Player.Enable();
         action.Player.Shoot.performed += Shoot_performed;
+        action.Player.Movement.performed += Movement_performed;
+    }
+    private void Start()
+    {
+        GameManager.Instance.SetPlayer(this);
+        hitZone.SetActive(false);
+
+    }
+    void Update()
+    {
+        ReadingInput();
+        timerCooldown -= Time.deltaTime;
+        hitTimer -= Time.deltaTime;
+        if (hitTimer <= 0)
+        {
+            Shoot(false);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        Vector2 dir = new Vector2(horizontal, vertical);
+        rgbd2D.AddForce(dir * speed ,ForceMode2D.Force);
+    }
+
+    private void Movement_performed(InputAction.CallbackContext context)
+    {
+        horizontal = context.ReadValue<Vector2>().x;
+        vertical = context.ReadValue<Vector2>().y;
+        if (!GameManager.Instance.waiting)
+        {
+
+            if (horizontal < 0 && facingRight)
+            {
+                Flip();
+            }
+            if (horizontal > 0 && !facingRight)
+            {
+                Flip();
+            }
+        }
+
     }
 
     private void Shoot_performed(InputAction.CallbackContext context)
@@ -50,54 +96,17 @@ public class PlayerScript : MonoBehaviour
         {
             Shoot(true); //frapper la balle
             timerCooldown = hitBall ? 0.3f : 1.0f;
-            hitTimer = 0.3f;
+            hitTimer = 0.2f;
         }
     }
 
-    private void Start()
-    {
-        GameManager.Instance.SetPlayer(this);
-        hitZone.SetActive(false);
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        ReadingInput();
-        timerCooldown -= Time.deltaTime;
-        hitTimer -= Time.deltaTime;
-        if(hitTimer <= 0)
-        {
-            Shoot(false);
-        }
-
-
-
-
-    }
-
-    private void FixedUpdate()
-    {
-        Vector2 pos = rgbd2D.position;
-        pos += new Vector2(horizontal, vertical) * speed / 60.0f;
-        rgbd2D.MovePosition(pos);
-    }
+    
 
     private void ReadingInput()
     {
 
-        /*vertical = Input.GetAxis("Vertical");
-        horizontal = Input.GetAxis("Horizontal");
-        if (horizontal < 0 && facingRight)
-        {
-            Flip();
-        }
-        if (horizontal > 0 && !facingRight)
-        {
-            Flip();
-        }
-        */
+        horizontal = action.Player.Movement.ReadValue<Vector2>().x;
+        vertical = action.Player.Movement.ReadValue<Vector2>().y;
     }
 
     private void Shoot(bool hit)
@@ -117,5 +126,13 @@ public class PlayerScript : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Ball")
+        {
+            GameManager.Instance.Stop(0.2f, 0.1f);
+        }
     }
 }
