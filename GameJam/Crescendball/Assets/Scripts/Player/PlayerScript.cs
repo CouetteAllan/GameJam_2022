@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
+    private CamShake shake;
+
+
     [SerializeField] private float speed = 25;
     bool facingRight = true;
 
@@ -64,6 +67,7 @@ public class PlayerScript : MonoBehaviour
     {
         GameManager.Instance.SetPlayer(this);
         Shoot(false);
+        shake = GameObject.FindGameObjectWithTag("GameManager").GetComponent<CamShake>();
 
     }
     void Update()
@@ -170,6 +174,7 @@ public class PlayerScript : MonoBehaviour
             hp--;
             invincibleTimer = 1.8f;
             anim.SetTrigger("Hit");
+            shake.ShakeRight();
             StartCoroutine(Fade(1.8f));
         }
     }
