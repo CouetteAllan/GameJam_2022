@@ -24,6 +24,7 @@ public class BallScript : MonoBehaviour
     private Animator                    anim;
     public Transform                    centerTransform;
     private int                         scoreBonus = 100;
+    private int multiplierDuo = 0;
 
     private void Awake()
     {
@@ -67,10 +68,10 @@ public class BallScript : MonoBehaviour
         {
             PlayerHitTheBall = false;
 
-
+            multiplierDuo++;
             Transform transform = other.gameObject.GetComponent<Transform>();
 
-            speed = Mathf.Clamp(((force / 20) + (multiplier /5)), 1.0f, 40f);
+            speed = Mathf.Clamp(((force / 30) + (multiplier /5)), 1.0f, 40f);
     
                   //REBONDS
             if (transform.localScale.x > transform.localScale.y)
@@ -107,9 +108,9 @@ public class BallScript : MonoBehaviour
 
             memoire = multiplier;
 
-            if (countRebond >= 12 && PlayerHitTheBall == false)
+            if (countRebond >= 20 && PlayerHitTheBall == false)
             {
-                countRebond += 0;
+                Debug.Log("vitesse maximale");
                 
             } else if (countRebond >= 10 && PlayerHitTheBall)
             {
@@ -121,10 +122,17 @@ public class BallScript : MonoBehaviour
             } else 
             { 
                 countRebond++;
-                multiplier++;
+                if(multiplierDuo == 2)
+                {
+
+                    multiplier++;
+                    multiplierDuo = 0;
+                }
                 int totalScore = scoreBonus * (int)memoire;
                 GameManager.Instance.SetScore(score + totalScore);
                 PopUpScore.Create(rb.position, totalScore,countRebond);
+                GameManager.Instance.SetMult((int)multiplier);
+
 
             }
             GameManager.Instance.SetMult((int)multiplier);

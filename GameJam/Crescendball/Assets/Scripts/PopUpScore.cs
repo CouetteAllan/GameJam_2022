@@ -27,19 +27,20 @@ public class PopUpScore : MonoBehaviour
         text.SetText(scoreAmount.ToString());
         if(rebonds < 2)
         {
-            text.fontSize = 6;  
+            text.fontSize = 5;  
         }
         else if (rebonds < 5)
         {
-            text.fontSize = 10;
+            text.fontSize = 9;
         }
         else if(rebonds < 10)
         {
-            text.fontSize = 15;
+            text.fontSize = 12;
         }
         else
         {
-            text.fontSize = 18;
+            text.fontSize = 16;
+            text.color = Color.red;
         }
     }
 
