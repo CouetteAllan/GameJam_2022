@@ -9,8 +9,8 @@ public class BallScript : MonoBehaviour
     public float                        force;
     public float                        speed;
     public int                          countRebond;
-    public int                          multiplyer;
-    int                                 memoire;
+    public float                          multiplyer;
+    float                                 memoire;
     public int                          score;
 
     public bool                         hit;
@@ -35,7 +35,7 @@ public class BallScript : MonoBehaviour
 
     void Update()
     {
-        if(rb.velocity.x != 0 && rb.velocity.y != 0)
+        if(rb.velocity.x != 0 || rb.velocity.y != 0)
         {
             lastGoodVel = rb.velocity;
         }
@@ -47,40 +47,40 @@ public class BallScript : MonoBehaviour
         {
             Transform transform = other.gameObject.GetComponent<Transform>();
 
+            speed = Mathf.Clamp(((force / 100) + (multiplyer /10)), 1.0f, 1.8f);
 
             if (transform.localScale.x > transform.localScale.y)
             {
-                rb.velocity = new Vector2(lastGoodVel.x, -lastGoodVel.y);
+                rb.velocity = new Vector2 (Mathf.Clamp(lastGoodVel.x, -60, 60), Mathf.Clamp(-lastGoodVel.y, -60, 60)) * speed;
             }
 
             if (transform.localScale.y > transform.localScale.x)
             {
-                rb.velocity = new Vector2(-lastGoodVel.x, lastGoodVel.y);
+                rb.velocity = new Vector2(Mathf.Clamp(-lastGoodVel.x, -60, 60) , Mathf.Clamp(lastGoodVel.y, -60, 60)) * speed;
             }
 
 
             score = GameManager.Instance.GetScore();
-            //speed = force * multiplyer;
 
             if (countRebond >= 10 && hit == false)
             {
                 countRebond += 0;
                 GameManager.Instance.SetScore(score += 0);
                 memoire = multiplyer;
-                multiplyer = 0;
+                multiplyer = 1;
             }
 
             else if (countRebond >= 10 && hit == true)
             {
                 countRebond++;
-                GameManager.Instance.SetScore(score += 100 * (memoire * 2));
+                GameManager.Instance.SetScore(score += 100 * ((int)memoire * 2));
             }
 
             else 
             { 
                 countRebond++;
                 multiplyer++;
-                GameManager.Instance.SetScore(score += 100 * multiplyer); 
+                GameManager.Instance.SetScore(score += 100 * (int)multiplyer); 
             }
 
 
