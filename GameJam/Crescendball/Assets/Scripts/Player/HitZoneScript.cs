@@ -61,9 +61,9 @@ public class HitZoneScript : MonoBehaviour
         ball.GetComponent<Rigidbody2D>().velocity = dir * magnitude * 1.25f;
         arrowSprite.enabled = false;
         ball.countRebond = 0;
-        int totalScore = 100 * ((int)ball.memoire * 2);
-        GameManager.Instance.SetScore(score + totalScore);
-        PopUpScore.Create(rb.position, totalScore, (int)multiplier);
+        int totalScore = 100 * ((int)ball.multiplier * 2);
+        GameManager.Instance.SetScore(GameManager.Instance.GetScore() + totalScore);
+        PopUpScore.Create(GameManager.Instance.GetPlayer().transform.position + Vector3.up * 5, totalScore, (int)ball.multiplier);
 
     }
 
