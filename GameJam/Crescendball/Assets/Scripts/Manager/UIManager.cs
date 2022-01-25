@@ -46,7 +46,7 @@ public class UIManager : MonoBehaviour
     }
     public void UpdateMult(int mult)
     {
-        mult_text.text = "x" + mult.ToString();
+        mult_text.text = mult.ToString();
     }
     
 }
