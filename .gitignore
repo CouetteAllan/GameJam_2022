@@ -36,3 +36,5 @@ sysinfo.txt
 *.apk
 *.unitypackage
 GameJam/Crescendball/Logs/AssetImportWorker0-prev.log
+GameJam/Crescendball/Logs/AssetImportWorker0-prev.log
+*.log
