@@ -85,18 +85,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 3569760645857013385}
-  force: 100
+  force: 5
   speed: 0
   countRebond: 0
-  multiplyer: 0
+  multiplier: 0
   score: 0
   hit: 0
   originalSpeed: {x: 2, y: -2}
-  wall:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  lastGoodVel: {x: 0, y: 0}
   centerTransform: {fileID: 0}
 --- !u!95 &432182087
 Animator:
