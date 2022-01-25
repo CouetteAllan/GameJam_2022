@@ -10,8 +10,15 @@ public class PlayerScript : MonoBehaviour
     bool facingRight = true;
 
 
-    private int hp;
+    private int hp = 3;
     public int Hp { get => hp; set => hp = value; }
+
+    bool alive = true;
+    public bool Alive
+    {
+        get => hp > 0;
+        set => alive = value;
+    }
 
     private float vertical;
     private float horizontal;
@@ -19,6 +26,10 @@ public class PlayerScript : MonoBehaviour
     private Rigidbody2D rgbd2D;
     public GameObject hitZone;
     public PlayerInputAction action;
+    private Animator anim;
+
+    Vector2 lastGoodDirection;
+    public Vector2 LastGoodDirection { get => lastGoodDirection; set => lastGoodDirection = value; }
 
     bool hitBall = false;
     float hitTimer = 0.3f;
@@ -33,6 +44,7 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+
     float timerCooldown;
     float invincibleTimer = 1.8f;
 
@@ -41,8 +53,8 @@ public class PlayerScript : MonoBehaviour
     {
         hp = 3;
         this.rgbd2D = this.GetComponent<Rigidbody2D>();
-        
 
+        anim = this.GetComponent<Animator>();
         action = new PlayerInputAction();
         action.Player.Enable();
         action.Player.Shoot.performed += Shoot_performed;
@@ -56,12 +68,28 @@ public class PlayerScript : MonoBehaviour
     }
     void Update()
     {
+        if (!Alive)
+        {
+            Destroy(gameObject);
+            return;
+
+        }
         ReadingInput();
         timerCooldown -= Time.deltaTime;
         hitTimer -= Time.deltaTime;
+        invincibleTimer -= Time.deltaTime;
         if (hitTimer <= 0)
         {
             Shoot(false);
+        }
+
+        Vector2 direction = action.Player.Movement.ReadValue<Vector2>().normalized;
+
+        if (direction.x > 0 || direction.y > 0)
+        {
+            lastGoodDirection = direction;
+            Debug.Log(lastGoodDirection);
+
         }
     }
 
@@ -130,9 +158,12 @@ public class PlayerScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Ball")
+        if(collision.gameObject.tag == "Ball" && invincibleTimer <= 0)
         {
-            GameManager.Instance.Stop(0.2f, 0.1f);
+            GameManager.Instance.Stop(0.2f, 0.2f);
+            hp--;
+            invincibleTimer = 1.8f;
+            anim.SetTrigger("Hit");
         }
     }
 }

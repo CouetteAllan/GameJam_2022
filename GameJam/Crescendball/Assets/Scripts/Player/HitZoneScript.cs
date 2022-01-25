@@ -28,14 +28,6 @@ public class HitZoneScript : MonoBehaviour
             player = GameManager.Instance.GetPlayer();
         }
 
-        Vector2 direction = player.action.Player.Movement.ReadValue<Vector2>().normalized;
-        Debug.Log(direction);
-
-        if (direction.x > 0 || direction.y > 0)
-        {
-            lastGoodDirection = direction;
-
-        }
         timer -= Time.deltaTime;
     }
 
@@ -50,7 +42,7 @@ public class HitZoneScript : MonoBehaviour
 
             BallScript ball = collision.gameObject.GetComponent<BallScript>();
             float velocityMagnitude = ball.GetComponent<Rigidbody2D>().velocity.magnitude;
-            Vector2 dir = lastGoodDirection;
+            Vector2 dir = player.LastGoodDirection;
             var magnitude = ball.GetComponent<Rigidbody2D>().velocity.magnitude;
             ball.GetComponent<Rigidbody2D>().velocity = dir * magnitude * 2;
             int score = GameManager.Instance.GetScore();
@@ -59,10 +51,4 @@ public class HitZoneScript : MonoBehaviour
         }
     }
 
-    private Vector2 Direction()
-    {
-        Vector2 direction = player.action.Player.Movement.ReadValue<Vector2>().normalized;
-
-        return direction;
-    }
 }

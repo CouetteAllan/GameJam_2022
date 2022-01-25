@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6263887502340450584}
   - component: {fileID: 3335977469042655944}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Eye (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,8 @@ GameObject:
   - component: {fileID: 5055722654366966275}
   - component: {fileID: 5055722654366966524}
   - component: {fileID: 5055722654366966274}
-  m_Layer: 0
+  - component: {fileID: 213151153}
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -178,6 +179,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 130
   hitZone: {fileID: 5055722654380712738}
+--- !u!95 &213151153
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5055722654366966272}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a92d2caa8ffa2bb428eb05637b53c3e0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5055722654380712738
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,7 +210,7 @@ GameObject:
   - component: {fileID: 5055722654380712732}
   - component: {fileID: 1260622175}
   - component: {fileID: 2601742229885042582}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HitZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5055722654532106642}
   - component: {fileID: 5055722654532106641}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8311993265677256871}
   - component: {fileID: 4860719104012712031}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
