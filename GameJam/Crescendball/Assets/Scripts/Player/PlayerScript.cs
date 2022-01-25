@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class PlayerScript : MonoBehaviour
 
     private Rigidbody2D rgbd2D;
     public GameObject hitZone;
+    private PlayerInput playerInput;
 
     bool hitBall = false;
     public bool HitBall {
@@ -30,12 +32,33 @@ public class PlayerScript : MonoBehaviour
     float hitTimer = 0.3f;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         hp = 3;
         this.rgbd2D = this.GetComponent<Rigidbody2D>();
-        hitZone.SetActive(false);
+        playerInput = this.GetComponent<PlayerInput>();
+        
+
+        PlayerInputAction action = new PlayerInputAction();
+        action.Player.Enable();
+        action.Player.Shoot.performed += Shoot_performed;
+    }
+
+    private void Shoot_performed(InputAction.CallbackContext context)
+    {
+        if(timerCooldown <= 0)
+        {
+            Shoot(true); //frapper la balle
+            timerCooldown = hitBall ? 0.3f : 1.0f;
+            hitTimer = 0.3f;
+        }
+    }
+
+    private void Start()
+    {
         GameManager.Instance.SetPlayer(this);
+        hitZone.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -46,7 +69,7 @@ public class PlayerScript : MonoBehaviour
         hitTimer -= Time.deltaTime;
         if(hitTimer <= 0)
         {
-            Hit(false);
+            Shoot(false);
         }
 
 
@@ -63,14 +86,8 @@ public class PlayerScript : MonoBehaviour
 
     private void ReadingInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && timerCooldown <= 0)
-        {
-            Hit(true); //frapper la balle
-            timerCooldown = hitBall ? 0.3f : 1.0f;
-            hitTimer = 0.3f;
-        }
 
-        vertical = Input.GetAxis("Vertical");
+        /*vertical = Input.GetAxis("Vertical");
         horizontal = Input.GetAxis("Horizontal");
         if (horizontal < 0 && facingRight)
         {
@@ -80,10 +97,10 @@ public class PlayerScript : MonoBehaviour
         {
             Flip();
         }
-
+        */
     }
 
-    private void Hit(bool hit)
+    private void Shoot(bool hit)
     {
         hitZone.SetActive(hit);
 
