@@ -7,8 +7,6 @@ using TMPro;
 public class BallScript : MonoBehaviour
 {
     [SerializeField] GameObject         ball;
-    [SerializeField] GameObject         ballScoringObject;
-    public Animator                     ballScoringAnimator;
     Rigidbody2D                         rb;
     public float                        force;
     public float                        speed;
@@ -22,14 +20,9 @@ public class BallScript : MonoBehaviour
     public bool PlayerHitTheBall { get => playerHitTheBall; set => playerHitTheBall = value; }
 
     public Vector2                      originalSpeed = new Vector2(2, -2);
-    Vector2                             dir = new Vector2(1, -1);
-    Vector2                             lastGoodVel;
-    Vector2                             lastGoodPos;
-    Vector2                             ballScoringObjPos;
+    public Vector2                             lastGoodVel;
     private Animator                    anim;
-    [SerializeField] List<GameObject>   wall = new List<GameObject>();
     public Transform centerTransform;
-    public Transform ballPos;
 
 
     private void Awake()
@@ -40,7 +33,6 @@ public class BallScript : MonoBehaviour
 
     void Start()
     {
-        ballScoringObjPos = ballScoringObject.GetComponent<Transform>().position;
         hit = false;
         multiplyer = 0;
         countRebond = 0;
@@ -55,7 +47,7 @@ public class BallScript : MonoBehaviour
         if(rb.velocity.x != 0 || rb.velocity.y != 0)
         {
             lastGoodVel = rb.velocity;
-            lastGoodPos = ballPos.position;
+            //lastGoodPos = ballPos.position;
         }
 
         if((rb.velocity.x >= -0.2 && rb.velocity.x <= 0.2) || (rb.velocity.y >= -0.2 && rb.velocity.y <= 0.2))
@@ -75,9 +67,6 @@ public class BallScript : MonoBehaviour
         {
             PlayerHitTheBall = false;
 
-            ballScoringObjPos = lastGoodPos;
-            ballScoringObject.SetActive(true);
-            ballScoringAnimator.SetTrigger("Score");
 
             Transform transform = other.gameObject.GetComponent<Transform>();
 
