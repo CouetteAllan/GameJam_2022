@@ -5,18 +5,21 @@ using UnityEngine;
 public class HitZoneScript : MonoBehaviour
 {
 
-    bool hit;
     private PlayerScript player;
     private Vector2 lastGoodDirection = new Vector2(1, 1);
     private float timer = 0.4f;
+    public GameObject arrow;
+    private SpriteRenderer arrowSprite;
 
     private void Awake()
     {
-
+        arrow.transform.position = this.transform.position;
     }
     void Start()
     {
-        
+
+        arrowSprite = arrow.GetComponentInChildren<SpriteRenderer>();
+        arrowSprite.enabled = false;
     }
 
     // Update is called once per frame
@@ -36,11 +39,12 @@ public class HitZoneScript : MonoBehaviour
     {
         if(collision.tag == "Ball")
         {
-            hit = true;
-            GameManager.Instance.Stop(0.6f);
+            float stopDuration = 0.8f;
+            GameManager.Instance.Stop(stopDuration);
+            arrowSprite.enabled = true;
 
             BallScript ball = collision.gameObject.GetComponent<BallScript>();
-            StartCoroutine(AimingDir(0.6f,ball));
+            StartCoroutine(AimingDir(stopDuration,ball));
             int score = GameManager.Instance.GetScore();
             GameManager.Instance.SetScore( score += 200);
             player.HitBall = true;
@@ -55,6 +59,7 @@ public class HitZoneScript : MonoBehaviour
         yield return new WaitForSecondsRealtime(duration);
         Vector2 dir = player.LastGoodDirection;
         ball.GetComponent<Rigidbody2D>().velocity = dir * magnitude * 1.25f;
+        arrowSprite.enabled = false;
 
     }
 
