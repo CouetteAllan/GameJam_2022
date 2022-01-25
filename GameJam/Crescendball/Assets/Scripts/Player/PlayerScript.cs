@@ -101,7 +101,6 @@ public class PlayerScript : MonoBehaviour
             float radToDeg = 57.2958f;
             float angleC2M = Mathf.Atan2(characterToDir.y, characterToDir.x);
             hitZoneScript.arrow.transform.eulerAngles = Vector3.forward * angleC2M * radToDeg;
-            Debug.Log(lastGoodDirection);
             /*-angleC2M * radToDeg;*/
         }
 
@@ -140,7 +139,7 @@ public class PlayerScript : MonoBehaviour
         {
             Shoot(true); //frapper la balle
             timerCooldown = hitBall ? 0.3f : 1.0f;
-            hitTimer = 0.2f;
+            hitTimer = 0.5f;
         }
     }
 

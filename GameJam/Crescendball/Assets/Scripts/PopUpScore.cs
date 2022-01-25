@@ -15,25 +15,25 @@ public class PopUpScore : MonoBehaviour
     }
 
 
-    public static PopUpScore Create(Vector2 pos,int scoreAmount,int rebonds)
+    public static PopUpScore Create(Vector2 pos,int scoreAmount,int multiplier)
     {
         Transform scoreTransform = Instantiate(GameManager.Instance.scorePopUp,pos,Quaternion.identity);
         PopUpScore score = scoreTransform.GetComponent<PopUpScore>();
-        score.Setup(scoreAmount,rebonds);
+        score.Setup(scoreAmount,multiplier);
         return score;
     }
-    public void Setup(int scoreAmount,int rebonds)
+    public void Setup(int scoreAmount,int multiplier)
     {
         text.SetText(scoreAmount.ToString());
-        if(rebonds < 2)
+        if(multiplier < 3)
         {
             text.fontSize = 5;  
         }
-        else if (rebonds < 5)
+        else if (multiplier < 6)
         {
             text.fontSize = 9;
         }
-        else if(rebonds < 10)
+        else if(multiplier < 9)
         {
             text.fontSize = 12;
         }
