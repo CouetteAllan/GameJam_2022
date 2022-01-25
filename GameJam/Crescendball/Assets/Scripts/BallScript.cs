@@ -24,7 +24,7 @@ public class BallScript : MonoBehaviour
     private Animator                    anim;
     public Transform                    centerTransform;
     private int                         scoreBonus = 100;
-    private int multiplierDuo = 1;
+    public int multiplierDuo = 1;
 
     private void Awake()
     {
