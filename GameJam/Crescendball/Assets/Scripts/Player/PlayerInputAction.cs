@@ -129,7 +129,7 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                     ""id"": ""bec6997c-7a6a-4383-8f94-bf0b1cda7b65"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
-                    ""processors"": ""StickDeadzone,NormalizeVector2"",
+                    ""processors"": ""StickDeadzone"",
                     ""groups"": ""GamePad"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
@@ -281,10 +281,6 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
         public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
         public void SetCallbacks(IPlayerActions instance)
         {
-            if(GameManager.Instance.GetPlayer() == null)
-            {
-                return;
-            }
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
                 @Shoot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;

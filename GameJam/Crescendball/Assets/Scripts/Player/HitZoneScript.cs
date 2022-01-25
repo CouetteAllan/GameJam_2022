@@ -9,14 +9,18 @@ public class HitZoneScript : MonoBehaviour
     private PlayerScript player;
     private Vector2 lastGoodDirection = new Vector2(1, 1);
     private float timer = 0.4f;
+    public GameObject arrow;
+    private SpriteRenderer arrowSprite;
 
     private void Awake()
     {
-
+        arrow.transform.position = this.transform.position;
     }
     void Start()
     {
-        
+
+        arrowSprite = arrow.GetComponentInChildren<SpriteRenderer>();
+        arrowSprite.enabled = false;
     }
 
     // Update is called once per frame

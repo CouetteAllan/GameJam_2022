@@ -28,6 +28,7 @@ public class PlayerScript : MonoBehaviour
 
     private Rigidbody2D rgbd2D;
     public GameObject hitZone;
+    private HitZoneScript hitZoneScript;
     public PlayerInputAction action;
     private Animator anim;
 
@@ -68,6 +69,7 @@ public class PlayerScript : MonoBehaviour
         GameManager.Instance.SetPlayer(this);
         Shoot(false);
         shake = GameObject.FindGameObjectWithTag("GameManager").GetComponent<CamShake>();
+        hitZoneScript = hitZone.GetComponent<HitZoneScript>();
 
     }
     void Update()
@@ -95,8 +97,12 @@ public class PlayerScript : MonoBehaviour
         if (direction.x != 0 || direction.y != 0)
         {
             lastGoodDirection = direction;
+            Vector2 characterToDir = (lastGoodDirection + (Vector2)this.transform.position) - (Vector2)this.transform.position;
+            float radToDeg = 57.2958f;
+            float angleC2M = Mathf.Atan2(characterToDir.y, characterToDir.x);
+            hitZoneScript.arrow.transform.eulerAngles = Vector3.forward * angleC2M * radToDeg;
             Debug.Log(lastGoodDirection);
-
+            /*-angleC2M * radToDeg;*/
         }
 
         UIManager.Instance.UpdateScore(GameManager.Instance.GetScore());
@@ -162,15 +168,18 @@ public class PlayerScript : MonoBehaviour
 
 
         Vector3 theScale = transform.localScale;
+        Vector3 theArrowScale = hitZoneScript.arrow.transform.localScale;
         theScale.x *= -1;
+        theArrowScale.x *= -1;
         transform.localScale = theScale;
+        hitZoneScript.arrow.transform.localScale = theArrowScale;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Ball" && invincibleTimer <= 0)
         {
-            GameManager.Instance.Stop(0.2f, 0.2f);
+            GameManager.Instance.Stop(0.2f);
             hp--;
             invincibleTimer = 1.8f;
             anim.SetTrigger("Hit");
