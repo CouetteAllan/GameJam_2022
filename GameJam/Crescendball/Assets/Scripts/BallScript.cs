@@ -11,7 +11,7 @@ public class BallScript : MonoBehaviour
     public float                        force;
     public float                        speed;
     public int                          countRebond;
-    public float                        multiplyer;
+    public float                        multiplier;
     float                               memoire;
     public int                          score;
 
@@ -22,8 +22,8 @@ public class BallScript : MonoBehaviour
     public Vector2                      originalSpeed = new Vector2(2, -2);
     public Vector2                             lastGoodVel;
     private Animator                    anim;
-    public Transform centerTransform;
-
+    public Transform                    centerTransform;
+    private int                         scoreBonus = 100;
 
     private void Awake()
     {
@@ -34,10 +34,11 @@ public class BallScript : MonoBehaviour
     void Start()
     {
         hit = false;
-        multiplyer = 0;
+        multiplier = 0;
         countRebond = 0;
         rb = ball.GetComponent<Rigidbody2D>();
         rb.AddForce(originalSpeed * force);
+        multiplier = 1;
     }
 
 
@@ -47,10 +48,9 @@ public class BallScript : MonoBehaviour
         if(rb.velocity.x != 0 || rb.velocity.y != 0)
         {
             lastGoodVel = rb.velocity;
-            //lastGoodPos = ballPos.position;
         }
 
-        if((rb.velocity.x >= -0.2 && rb.velocity.x <= 0.2) || (rb.velocity.y >= -0.2 && rb.velocity.y <= 0.2))
+        /*if((rb.velocity.x >= -0.2 && rb.velocity.x <= 0.2) || (rb.velocity.y >= -0.2 && rb.velocity.y <= 0.2))
         {
             if (!PlayerHitTheBall)
             {
@@ -58,7 +58,7 @@ public class BallScript : MonoBehaviour
                 rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -60, 60), Mathf.Clamp(rb.velocity.y, -60, 60));
                 
             }
-        }
+        }*/
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -70,8 +70,9 @@ public class BallScript : MonoBehaviour
 
             Transform transform = other.gameObject.GetComponent<Transform>();
 
-            speed = Mathf.Clamp(((force / 20) + (multiplyer /5)), 1.0f, 40f);
-
+            speed = Mathf.Clamp(((force / 20) + (multiplier /5)), 1.0f, 40f);
+    
+                  //REBONDS
             if (transform.localScale.x > transform.localScale.y)
             {
                 
@@ -101,28 +102,36 @@ public class BallScript : MonoBehaviour
                 }
             }
 
-
+                //SCORING
             score = GameManager.Instance.GetScore();
 
-            if (countRebond >= 10 && hit == false)
+            memoire = multiplier;
+
+            if (countRebond >= 12 && PlayerHitTheBall == false)
             {
                 countRebond += 0;
-                GameManager.Instance.SetScore(score += 0);
-                memoire = multiplyer;
-                //multiplyer = 1;
+                
             }
 
-            else if (countRebond >= 10 && hit == true)
+            else if (countRebond >= 10 && PlayerHitTheBall)
             {
                 countRebond = 0;
-                GameManager.Instance.SetScore(score += 100 * ((int)memoire * 2));
+                int totalScore = scoreBonus * ((int)memoire * 2);
+                GameManager.Instance.SetScore(score + totalScore);
+                PopUpScore.Create(rb.position, totalScore);
+
             }
+
+
 
             else 
             { 
                 countRebond++;
-                multiplyer++;
-                GameManager.Instance.SetScore(score += 100 * (int)multiplyer); 
+                multiplier++;
+                int totalScore = scoreBonus * (int)memoire;
+                GameManager.Instance.SetScore(score + totalScore);
+                PopUpScore.Create(rb.position, totalScore);
+
             }
 
 
