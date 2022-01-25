@@ -28,7 +28,6 @@ public class UIManager : MonoBehaviour
     }
 
     public TextMeshProUGUI score_text;
-    public TextMeshProUGUI mult_text;
 
     public void Wiggle()
     {
@@ -44,9 +43,6 @@ public class UIManager : MonoBehaviour
     {
         score_text.text = score.ToString();
     }
-    public void UpdateMult(int mult)
-    {
-        mult_text.text = mult.ToString();
-    }
+
     
 }

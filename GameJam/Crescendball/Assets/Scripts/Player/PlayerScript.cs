@@ -106,7 +106,6 @@ public class PlayerScript : MonoBehaviour
         }
 
         UIManager.Instance.UpdateScore(GameManager.Instance.GetScore());
-        UIManager.Instance.UpdateMult(GameManager.Instance.GetMult());
     }
 
     private void FixedUpdate()
