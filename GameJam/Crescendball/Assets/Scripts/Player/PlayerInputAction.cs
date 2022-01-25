@@ -281,6 +281,10 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
         public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
         public void SetCallbacks(IPlayerActions instance)
         {
+            if(GameManager.Instance.GetPlayer() == null)
+            {
+                return;
+            }
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
                 @Shoot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
