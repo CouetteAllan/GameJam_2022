@@ -1,28 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class BallScript : MonoBehaviour
 {
     [SerializeField] GameObject         ball;
+    [SerializeField] GameObject         ballScoringObject;
+    public Animator                     ballScoringAnimator;
     Rigidbody2D                         rb;
     public float                        force;
     public float                        speed;
     public int                          countRebond;
-    public float                          multiplyer;
-    float                                 memoire;
+    public float                        multiplyer;
+    float                               memoire;
     public int                          score;
 
     public bool                         hit;
     private bool                        playerHitTheBall;
     public bool PlayerHitTheBall { get => playerHitTheBall; set => playerHitTheBall = value; }
 
-    public Vector2              originalSpeed = new Vector2(2, -2);
+    public Vector2                      originalSpeed = new Vector2(2, -2);
     Vector2                             dir = new Vector2(1, -1);
     Vector2                             lastGoodVel;
+    Vector2                             lastGoodPos;
+    Vector2                             ballScoringObjPos;
     private Animator                    anim;
-    [SerializeField] List<GameObject> wall = new List<GameObject>();
+    [SerializeField] List<GameObject>   wall = new List<GameObject>();
     public Transform centerTransform;
+    public Transform ballPos;
 
 
     private void Awake()
@@ -33,6 +40,7 @@ public class BallScript : MonoBehaviour
 
     void Start()
     {
+        ballScoringObjPos = ballScoringObject.GetComponent<Transform>().position;
         hit = false;
         multiplyer = 0;
         countRebond = 0;
@@ -43,9 +51,11 @@ public class BallScript : MonoBehaviour
 
     void Update()
     {
+        
         if(rb.velocity.x != 0 || rb.velocity.y != 0)
         {
             lastGoodVel = rb.velocity;
+            lastGoodPos = ballPos.position;
         }
 
         if((rb.velocity.x >= -0.2 && rb.velocity.x <= 0.2) || (rb.velocity.y >= -0.2 && rb.velocity.y <= 0.2))
@@ -64,12 +74,18 @@ public class BallScript : MonoBehaviour
         if ( other.gameObject.layer == 6)
         {
             PlayerHitTheBall = false;
+
+            ballScoringObjPos = lastGoodPos;
+            ballScoringObject.SetActive(true);
+            ballScoringAnimator.SetTrigger("Score");
+
             Transform transform = other.gameObject.GetComponent<Transform>();
 
             speed = Mathf.Clamp(((force / 20) + (multiplyer /5)), 1.0f, 40f);
 
             if (transform.localScale.x > transform.localScale.y)
             {
+                
                 rb.velocity = new Vector2 (Mathf.Clamp(lastGoodVel.normalized.x * Mathf.Abs(originalSpeed.x) * speed, -60, 60), Mathf.Clamp(-lastGoodVel.normalized.y * Mathf.Abs(originalSpeed.y) * speed, -60, 60)) ;
                 if(lastGoodVel.y < rb.velocity.y)
                 {
@@ -109,7 +125,7 @@ public class BallScript : MonoBehaviour
 
             else if (countRebond >= 10 && hit == true)
             {
-                countRebond++;
+                countRebond = 0;
                 GameManager.Instance.SetScore(score += 100 * ((int)memoire * 2));
             }
 
