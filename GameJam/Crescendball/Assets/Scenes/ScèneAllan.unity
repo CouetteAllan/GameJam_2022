@@ -588,6 +588,10 @@ PrefabInstance:
       value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
+      propertyPath: centerTransform
+      value: 
+      objectReference: {fileID: 727649096}
+    - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
       propertyPath: ballScoringAnimator
       value: 
       objectReference: {fileID: 0}
@@ -686,6 +690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score_text: {fileID: 571213381}
+  mult_text: {fileID: 0}
 --- !u!114 &1844828608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,6 +705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waiting: 0
   score: 0
+  mult: 0
   scorePopUp: {fileID: 5408756720024738506, guid: 2ec79d1ade92e1c49a689bbd8f8c66c5, type: 3}
 --- !u!4 &1844828609
 Transform:
