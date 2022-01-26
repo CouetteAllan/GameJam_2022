@@ -26,6 +26,7 @@ public class BallScript : MonoBehaviour
     public Transform                    centerTransform;
     private SpriteRenderer sprite;
     private Color spriteColor;
+    private ParticleSystem particles;
     private int                         scoreBonus = 100;
     public int                          multiplierDuo = 1;
     private int nbrOfInvincincibleBounces = 0; //pour dire que le joueur se fait pas toucher par la balle pendant 1 ou 2 rebonds pour éviter la frustration
@@ -34,6 +35,7 @@ public class BallScript : MonoBehaviour
 
     private void Awake()
     {
+        particles = GetComponentInChildren<ParticleSystem>();
         anim = this.GetComponent<Animator>();
         centerTransform = GameObject.Find("Center").GetComponent<Transform>();
         sprite = GetComponentInChildren<SpriteRenderer>();
@@ -90,6 +92,7 @@ public class BallScript : MonoBehaviour
             {
                 Physics2D.IgnoreLayerCollision(3, 7, false);
                 sprite.color = spriteColor;
+                particles.Stop();
             }
 
             ///// REBONDS /////
