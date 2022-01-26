@@ -6,7 +6,7 @@ public class CamShake : MonoBehaviour
 {
     public Animator camAnimator;
 
-    public void ShakeRight()
+    public void Shake()
     {
         camAnimator.SetTrigger("Shake");
     }
