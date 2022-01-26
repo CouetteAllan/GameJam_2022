@@ -10,10 +10,12 @@ public class HitZoneScript : MonoBehaviour
     private float timer = 0.4f;
     public GameObject arrow;
     private SpriteRenderer arrowSprite;
+    private ParticleSystem particles;
 
     private void Awake()
     {
         arrow.transform.position = this.transform.position;
+        particles = GetComponentInChildren<ParticleSystem>();
     }
     void Start()
     {
@@ -53,6 +55,7 @@ public class HitZoneScript : MonoBehaviour
             GameManager.Instance.Stop(stopDuration);
             arrowSprite.enabled = true;
 
+            particles.Play();
             StartCoroutine(AimingDir(stopDuration,ball));
             
             player.HitBall = true;
