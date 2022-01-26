@@ -35,23 +35,23 @@ public class PopUpScore : MonoBehaviour
         }
         else if (multiplier < 6)
         {
-            text.fontSize = 7;
+            text.fontSize = 6;
             textColor = new Color(255.0f / 255.0f, 180.0f / 255.0f, 180.0f / 255.0f); 
 
         }
         else if(multiplier < 9)
         {
-            text.fontSize = 10;
+            text.fontSize = 8;
             textColor = new Color(255.0f / 255.0f, 90.0f / 255.0f, 90.0f / 255.0f);
 
         }
         else
         {
-            text.fontSize = 14;
+            text.fontSize = 11;
             textColor = Color.red;
             if (jackpot)
             {
-                text.fontSize = 17;
+                text.fontSize = 14;
                 timerMax = 1.2f;
                 timer = 1.2f;
             }
