@@ -65,6 +65,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score_text: {fileID: 0}
   mult_text: {fileID: 0}
+  eventSystem: {fileID: 0}
+  pauseMenuObj: {fileID: 0}
+  pauseMenuFirstSelectable: {fileID: 0}
+  gameOverPanelObj: {fileID: 0}
+  gameOverFirstSelectable: {fileID: 0}
   LifeIcons:
   - {fileID: 0}
   - {fileID: 0}

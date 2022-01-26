@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class UIManager : MonoBehaviour
 {
@@ -29,16 +31,30 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI score_text;
     public TextMeshProUGUI mult_text;
-
+    public EventSystem eventSystem;
+    public GameObject pauseMenuObj;
+    public GameObject pauseMenuFirstSelectable;
+    public GameObject gameOverPanelObj;
+    public GameObject gameOverFirstSelectable;
     public GameObject[] LifeIcons;
 
-    public void Wiggle()
-    {
 
+
+    private void Awake()
+    {
+        eventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
     }
 
     public void PauseMenu(bool active)
     {
+        pauseMenuObj.SetActive(active);
+        eventSystem.firstSelectedGameObject = pauseMenuFirstSelectable;
+    }
+
+    public void GameOverPanel(bool active)
+    {
+        gameOverPanelObj.SetActive(active);
+        eventSystem.firstSelectedGameObject = gameOverFirstSelectable;
 
     }
 

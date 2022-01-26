@@ -299,9 +299,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1201177811}
     - target: {fileID: 5551733774344115128, guid: 666da692d19102b45baac54f46ff3613, type: 3}
-      propertyPath: LifeIcons.Array.size
-      value: 5
-      objectReference: {fileID: 0}
+      propertyPath: eventSystem
+      value: 
+      objectReference: {fileID: 432967748}
+    - target: {fileID: 5551733774344115128, guid: 666da692d19102b45baac54f46ff3613, type: 3}
+      propertyPath: pauseMenuObj
+      value: 
+      objectReference: {fileID: 1347733772}
+    - target: {fileID: 5551733774344115128, guid: 666da692d19102b45baac54f46ff3613, type: 3}
+      propertyPath: gameOverPanelObj
+      value: 
+      objectReference: {fileID: 1458912784}
     - target: {fileID: 5551733774344115128, guid: 666da692d19102b45baac54f46ff3613, type: 3}
       propertyPath: LifeIcons.Array.data[0]
       value: 
@@ -322,6 +330,14 @@ PrefabInstance:
       propertyPath: LifeIcons.Array.data[4]
       value: 
       objectReference: {fileID: 194745657}
+    - target: {fileID: 5551733774344115128, guid: 666da692d19102b45baac54f46ff3613, type: 3}
+      propertyPath: gameOverFirstSelectable
+      value: 
+      objectReference: {fileID: 1514317382}
+    - target: {fileID: 5551733774344115128, guid: 666da692d19102b45baac54f46ff3613, type: 3}
+      propertyPath: pauseMenuFirstSelectable
+      value: 
+      objectReference: {fileID: 1792223940}
     - target: {fileID: 5551733774344115129, guid: 666da692d19102b45baac54f46ff3613, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -437,7 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1792223940}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &432967749
@@ -846,6 +862,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -52.080017
       objectReference: {fileID: 0}
+    - target: {fileID: 1696667295, guid: 225a65cef255c17469ee0404253c027a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4452372260300932216, guid: 225a65cef255c17469ee0404253c027a, type: 3}
       propertyPath: ball
       value: 
@@ -1047,6 +1067,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1347733772 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3502522735145180756, guid: 225a65cef255c17469ee0404253c027a, type: 3}
+  m_PrefabInstance: {fileID: 1201177809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1458912784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1696667295, guid: 225a65cef255c17469ee0404253c027a, type: 3}
+  m_PrefabInstance: {fileID: 1201177809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1514317382 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6189752857157127664, guid: 225a65cef255c17469ee0404253c027a, type: 3}
+  m_PrefabInstance: {fileID: 1201177809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1792223940 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6455240711821181442, guid: 225a65cef255c17469ee0404253c027a, type: 3}
+  m_PrefabInstance: {fileID: 1201177809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2040673162
 PrefabInstance:
   m_ObjectHideFlags: 0

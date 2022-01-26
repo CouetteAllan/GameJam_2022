@@ -60,6 +60,9 @@ public class GameManager : MonoBehaviour
                     break;
 
                 case GameStates.GameOver:
+                    UIManager.Instance.GameOverPanel(true);
+                    Time.timeScale = 0.4f;
+                    Time.fixedDeltaTime = 0.02f * Time.timeScale;
                     break;
 
 

@@ -68,7 +68,7 @@ public class PlayerScript : MonoBehaviour
 
     private void Pause_performed(InputAction.CallbackContext obj)
     {
-        ;
+        GameManager.Instance.CurrentGameStates = GameManager.GameStates.Pause;
     }
 
     private void Start()
