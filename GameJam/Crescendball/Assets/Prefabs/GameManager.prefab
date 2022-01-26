@@ -65,6 +65,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score_text: {fileID: 0}
   mult_text: {fileID: 0}
+  LifeIcons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &5551733774344115133
 MonoBehaviour:
   m_ObjectHideFlags: 0
