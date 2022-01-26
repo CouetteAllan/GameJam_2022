@@ -645,6 +645,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 241829bbddb796841ad539b2bfcf1a8b, type: 3}
+--- !u!95 &1455196845 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 432182087, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
+  m_PrefabInstance: {fileID: 1727477282}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1596667195
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,6 +779,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
+      propertyPath: interfaceScore
+      value: 
+      objectReference: {fileID: 1455196845}
     - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
       propertyPath: centerTransform
       value: 
@@ -920,31 +929,31 @@ MonoBehaviour:
   sounds:
   - name: Bgm1
     clip: {fileID: 8300000, guid: 144b678cbb6efbe46b325cc2f4cd9674, type: 3}
-    volume: 0.646
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Bgm2
     clip: {fileID: 8300000, guid: af5fb078e265f0740a3b3f26807aa953, type: 3}
-    volume: 0.712
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Bgm3
     clip: {fileID: 8300000, guid: 35c6c8ac98b26a84a9a2aca9b52b22c3, type: 3}
-    volume: 0.728
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: BatHit
     clip: {fileID: 8300000, guid: 77683fd4bf7b3f84998cce37df95379e, type: 3}
-    volume: 0.29
+    volume: 0.44
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Homerun
     clip: {fileID: 8300000, guid: d97fbaf9c83712e41aa605dd90f749d1, type: 3}
-    volume: 0.402
+    volume: 0.6
     pitch: 1
     loop: 0
     source: {fileID: 0}
