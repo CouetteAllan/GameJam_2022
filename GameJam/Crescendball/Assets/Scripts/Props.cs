@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class Props : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+
+
     void Start()
     {
         
     }
-
-    // Update is called once per frame
     void Update()
     {
         
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        BallScript ball = collision.gameObject.GetComponent<BallScript>();
+        if(ball.multiplier >= 10)
+        {
+            PopUpScore.Create(this.transform.position += Vector3.up * 1.2f, 400 * (int)ball.multiplier);
+            Destroy(gameObject);
+        }
+    }
+    
 }

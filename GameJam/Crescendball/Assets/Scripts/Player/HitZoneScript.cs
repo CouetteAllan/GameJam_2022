@@ -12,12 +12,14 @@ public class HitZoneScript : MonoBehaviour
     private SpriteRenderer arrowSprite;
     private ParticleSystem particles;
     private ParticleSystem particlesHomerun;
+    private ParticleSystem particlesBall;
 
     private void Awake()
     {
         arrow.transform.position = this.transform.position;
         particles = GameObject.Find("HitZone/Particles_NormalHit").GetComponent<ParticleSystem>();
         particlesHomerun = GameObject.Find("HitZone/Particles_Homerun").GetComponent<ParticleSystem>();
+        particlesBall = GameObject.Find("Ball/Particles").GetComponent<ParticleSystem>();
     }
     void Start()
     {
@@ -59,6 +61,7 @@ public class HitZoneScript : MonoBehaviour
             arrowSprite.enabled = true;
 
             particles.Play();
+            particlesBall.Play();
             StartCoroutine(AimingDir(stopDuration,ball));
             
             player.HitBall = true;
