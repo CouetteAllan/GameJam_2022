@@ -24,14 +24,20 @@ public class BallScript : MonoBehaviour
     public Vector2                             lastGoodVel;
     private Animator                    anim;
     public Transform                    centerTransform;
+    private SpriteRenderer sprite;
+    private Color spriteColor;
     private int                         scoreBonus = 100;
     public int                          multiplierDuo = 1;
+    private int nbrOfInvincincibleBounces = 0; //pour dire que le joueur se fait pas toucher par la balle pendant 1 ou 2 rebonds pour éviter la frustration
+
     private bool otheranim;
 
     private void Awake()
     {
         anim = this.GetComponent<Animator>();
         centerTransform = GameObject.Find("Center").GetComponent<Transform>();
+        sprite = GetComponentInChildren<SpriteRenderer>();
+        spriteColor = sprite.color;
     }
 
     void Start()
@@ -61,6 +67,9 @@ public class BallScript : MonoBehaviour
         if (PlayerHitTheBall)
         {
             speed *= 1.2f;
+            Physics2D.IgnoreLayerCollision(3, 7, true);
+            nbrOfInvincincibleBounces = 0;
+            sprite.color = Color.green;
             PlayerHitTheBall = false;
         }
 
@@ -71,19 +80,17 @@ public class BallScript : MonoBehaviour
         if ( other.gameObject.layer == 6)
         {
            
-
-
-
-
-
-
            
            interfaceScore.SetTrigger("playScore");
 
-            
+            nbrOfInvincincibleBounces++;
             multiplierDuo++;
             Transform transform = other.gameObject.GetComponent<Transform>();
-
+            if(nbrOfInvincincibleBounces >= 2)
+            {
+                Physics2D.IgnoreLayerCollision(3, 7, false);
+                sprite.color = spriteColor;
+            }
 
             ///// REBONDS /////
             AudioManager.instance.Play("Bounce");
@@ -125,7 +132,6 @@ public class BallScript : MonoBehaviour
             {
                 interfaceScore.SetBool("playScoreMaxed", true);
                 otheranim = true;
-                Debug.Log("vitesse maximale");
 
             }
             else
