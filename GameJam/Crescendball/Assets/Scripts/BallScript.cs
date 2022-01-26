@@ -36,7 +36,6 @@ public class BallScript : MonoBehaviour
 
     void Start()
     {
-        interfaceScore.SetBool("scoreMaxed", false);
         hit = false;
         multiplier = 0;
         countRebond = 0;
