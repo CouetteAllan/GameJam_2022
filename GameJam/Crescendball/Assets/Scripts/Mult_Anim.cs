@@ -22,72 +22,72 @@ public class Mult_Anim : MonoBehaviour
         {
             if (ball.multiplier == 0)
             {
-                text.fontSize = 46;
+                text.fontSize = 50;
                 textColor = Color.white;
             }
             else if (ball.multiplier == 1)
             {
-                text.fontSize = 50;
+                text.fontSize = 60;
                 textColor = new Color(245.0f / 255.0f, 255.0f / 255.0f, 0 / 255.0f);
             }
 
             else if (ball.multiplier == 2)
             {
-                text.fontSize = 54;
+                text.fontSize = 70;
                 textColor = new Color(75.0f / 255.0f, 255.0f / 255.0f, 0 / 255.0f);
 
             }
 
             else if (ball.multiplier == 3)
             {
-                text.fontSize = 58;
+                text.fontSize = 80;
                 textColor = new Color(0.0f / 255.0f, 132.0f / 255.0f, 21.0f / 255.0f);
 
             }
 
             else if (ball.multiplier == 4)
             {
-                text.fontSize = 62;
+                text.fontSize = 90;
                 textColor = new Color(0.0f / 255.0f, 154.0f / 255.0f, 139.0f / 255.0f);
 
             }
 
             else if (ball.multiplier == 5)
             {
-                text.fontSize = 66;
+                text.fontSize = 100;
                 textColor = new Color(0.0f / 255.0f, 31.0f / 255.0f, 255.0f / 255.0f);
 
             }
 
             else if (ball.multiplier == 6)
             {
-                text.fontSize = 70;
+                text.fontSize = 110;
                 textColor = new Color(101.0f / 255.0f, 58.0f / 255.0f, 241.0f / 255.0f);
 
             }
 
             else if (ball.multiplier == 7)
             {
-                text.fontSize = 74;
+                text.fontSize = 120;
                 textColor = new Color(104.0f / 255.0f, 0.0f / 255.0f, 229.0f / 255.0f);
 
             }
 
             else if (ball.multiplier == 8)
             {
-                text.fontSize = 78;
+                text.fontSize = 130;
                 textColor = new Color(226.0f / 255.0f, 33.0f / 255.0f, 199.0f / 255.0f);
 
             }
 
             else if (ball.multiplier == 9)
             {
-                text.fontSize = 82;
+                text.fontSize = 140;
                 textColor = new Color(212.0f / 255.0f, 43.0f / 255.0f, 53.0f / 255.0f);
             }
             else
             {
-                text.fontSize = 90;
+                text.fontSize = 150;
                 textColor = Color.red;
             }
             text.color = textColor;
