@@ -220,6 +220,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1260622175, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 519420028}
     - target: {fileID: 2081877392, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -671,7 +675,7 @@ Animator:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6aa71dd5a3f121349b336c92b6a631f0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 556396c1ddeca554cbc68100bc2307b9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

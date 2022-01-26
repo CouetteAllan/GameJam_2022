@@ -31,29 +31,29 @@ public class PopUpScore : MonoBehaviour
         text.SetText(scoreAmount.ToString());
         if(multiplier < 3)
         {
-            text.fontSize = 4;  
+            text.fontSize = 3;  
             textColor = Color.white;
         }
         else if (multiplier < 6)
         {
-            text.fontSize = 6;
+            text.fontSize = 5;
             textColor = new Color(255.0f / 255.0f, 180.0f / 255.0f, 180.0f / 255.0f); 
 
         }
         else if(multiplier < 9)
         {
-            text.fontSize = 8;
+            text.fontSize = 7;
             textColor = new Color(255.0f / 255.0f, 90.0f / 255.0f, 90.0f / 255.0f);
 
         }
         else
         {
-            text.fontSize = 11;
+            text.fontSize = 9.5f;
             textColor = Color.red;
             if (jackpot)
             {
                 player = jackpot;
-                text.fontSize = 14;
+                text.fontSize = 12;
                 timerMax = 1.2f;
                 timer = 1.2f;
             }
@@ -74,12 +74,12 @@ public class PopUpScore : MonoBehaviour
 
         if(timer > timerMax * .5f)
         {
-            float increaseScaleAmount = player ? 0.7f : 1.2f;
+            float increaseScaleAmount = player ? 0.6f : 1.1f;
             transform.localScale += Vector3.one * increaseScaleAmount * Time.deltaTime;
         }
         else
         {
-            float decreaseScaleAmount = player ? 0.7f : 1.2f;
+            float decreaseScaleAmount = player ? 0.6f : 1.1f;
             transform.localScale -= Vector3.one * decreaseScaleAmount * Time.deltaTime;
         }
 

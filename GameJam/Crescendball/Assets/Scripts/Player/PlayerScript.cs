@@ -95,6 +95,7 @@ public class PlayerScript : MonoBehaviour
             GameManager.Instance.SetPlayer(null);
             action.Player.Shoot.performed -= Shoot_performed;
             action.Player.Movement.performed -= Movement_performed;
+            GameManager.Instance.CurrentGameStates = GameManager.GameStates.GameOver;
             Destroy(gameObject);
             return;
 
