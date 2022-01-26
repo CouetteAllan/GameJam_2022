@@ -8,6 +8,8 @@ public class MenuFunctions : MonoBehaviour
     public void LoadGame()
     {
         SceneManager.LoadScene(1);
+        GameManager.Instance.CurrentGameStates = GameManager.GameStates.InGame;
+
     }
     public void QuitGame()
     {
