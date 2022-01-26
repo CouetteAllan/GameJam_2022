@@ -8,7 +8,6 @@ public class BallScript : MonoBehaviour
 {
     [SerializeField] GameObject         ball;
     [SerializeField] Animator           interfaceScore;
-    [SerializeField] Animator           cam;
     Rigidbody2D                         rb;
     public float                        force;
     public float                        speed;
@@ -32,7 +31,7 @@ public class BallScript : MonoBehaviour
     public int                          multiplierDuo = 1;
     private int nbrOfInvincincibleBounces = 0; //pour dire que le joueur se fait pas toucher par la balle pendant 1 ou 2 rebonds pour éviter la frustration
 
-    private bool otheranim;
+
 
     private void Awake()
     {
@@ -103,13 +102,12 @@ public class BallScript : MonoBehaviour
                 rb.velocity = new Vector2 (Mathf.Clamp(lastGoodVel.normalized.x * Mathf.Abs(originalSpeed.x) * speed, -55, 55), Mathf.Clamp(-lastGoodVel.normalized.y * Mathf.Abs(originalSpeed.y) * speed, -55, 55)) ;
                 if(lastGoodVel.y < rb.velocity.y)
                 {
+
                     anim.SetTrigger("Splash Up");
-                    cam.SetTrigger("CamShakeTop");
                 }
                 else
                 {
                     anim.SetTrigger("Splash Down");
-                    cam.SetTrigger("CamShakeBot");
 
                 }
 
@@ -122,13 +120,11 @@ public class BallScript : MonoBehaviour
                 if (lastGoodVel.x < rb.velocity.x)
                 {
                     anim.SetTrigger("Splash Right");
-                    cam.SetTrigger("CamShakeRight");
 
                 }
                 else
                 {
                     anim.SetTrigger("Splash Left");
-                    cam.SetTrigger("CamShakeLeft");
                 }
             }
 
@@ -141,7 +137,6 @@ public class BallScript : MonoBehaviour
             if (countRebond >= 18 && PlayerHitTheBall == false)
             {
                 interfaceScore.SetBool("playScoreMaxed", true);
-                otheranim = true;
 
             }
             else

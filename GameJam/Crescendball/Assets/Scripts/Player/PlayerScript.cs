@@ -202,7 +202,7 @@ public class PlayerScript : MonoBehaviour
             hp--;
             invincibleTimer = 1.8f;
             anim.SetTrigger("Hit");
-            shake.ShakeRight();
+            shake.Shake();
             StartCoroutine(Fade(1.8f));
             ball.multiplier = 1;
             ball.multiplierDuo = 1;
