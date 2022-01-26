@@ -89,4 +89,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acb02e128f989844f97949250829264c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: Bgm1
+    clip: {fileID: 8300000, guid: 144b678cbb6efbe46b325cc2f4cd9674, type: 3}
+    volume: 0.646
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Bgm2
+    clip: {fileID: 8300000, guid: af5fb078e265f0740a3b3f26807aa953, type: 3}
+    volume: 0.712
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Bgm3
+    clip: {fileID: 8300000, guid: 35c6c8ac98b26a84a9a2aca9b52b22c3, type: 3}
+    volume: 0.728
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: BatHit
+    clip: {fileID: 8300000, guid: 77683fd4bf7b3f84998cce37df95379e, type: 3}
+    volume: 0.29
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Homerun
+    clip: {fileID: 8300000, guid: d97fbaf9c83712e41aa605dd90f749d1, type: 3}
+    volume: 0.29
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerEffort
+    clip: {fileID: 8300000, guid: d97fbaf9c83712e41aa605dd90f749d1, type: 3}
+    volume: 0.29
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}

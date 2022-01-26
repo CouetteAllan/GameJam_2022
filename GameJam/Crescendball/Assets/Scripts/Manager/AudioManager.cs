@@ -53,6 +53,10 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound " + name + " not found!");
             return;
         }
+        if(name == "Ball")
+        {
+            Debug.Log("qsdf");
+        }
         s.source.Play();
     }
 

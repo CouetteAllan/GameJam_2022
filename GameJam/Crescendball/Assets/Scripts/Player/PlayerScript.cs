@@ -140,6 +140,7 @@ public class PlayerScript : MonoBehaviour
             Shoot(true); //frapper la balle
             timerCooldown = hitBall ? 0.3f : 1.0f;
             hitTimer = 0.5f;
+            AudioManager.instance.Play("PlayerEffort");
         }
     }
 
@@ -156,6 +157,7 @@ public class PlayerScript : MonoBehaviour
     {
         hitZone.GetComponent<BoxCollider2D>().enabled = hit;
         hitZone.GetComponent<SpriteRenderer>().enabled = hit;
+
 
     }
 
