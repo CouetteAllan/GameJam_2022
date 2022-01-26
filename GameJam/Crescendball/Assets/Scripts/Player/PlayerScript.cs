@@ -74,6 +74,9 @@ public class PlayerScript : MonoBehaviour
     }
     void Update()
     {
+        UIManager.Instance.UpdateLife(Hp);
+
+
         if (!Alive)
         {
             GameManager.Instance.SetPlayer(null);

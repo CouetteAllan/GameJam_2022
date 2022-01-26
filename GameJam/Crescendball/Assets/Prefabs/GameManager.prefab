@@ -93,19 +93,19 @@ MonoBehaviour:
   sounds:
   - name: Bgm1
     clip: {fileID: 8300000, guid: 144b678cbb6efbe46b325cc2f4cd9674, type: 3}
-    volume: 0.33
+    volume: 0.28
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Bgm2
     clip: {fileID: 8300000, guid: af5fb078e265f0740a3b3f26807aa953, type: 3}
-    volume: 0.33
+    volume: 0.28
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Bgm3
     clip: {fileID: 8300000, guid: 35c6c8ac98b26a84a9a2aca9b52b22c3, type: 3}
-    volume: 0.33
+    volume: 0.28
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -129,7 +129,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: PlayerHurt
     clip: {fileID: 8300000, guid: 59827d1a7c9009846bfc93110a55a8f8, type: 3}
-    volume: 0.2
+    volume: 0.557
     pitch: 0.91
     loop: 0
     source: {fileID: 0}

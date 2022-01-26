@@ -30,6 +30,8 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI score_text;
     public TextMeshProUGUI mult_text;
 
+    public GameObject[] LifeIcons;
+
     public void Wiggle()
     {
 
@@ -49,4 +51,18 @@ public class UIManager : MonoBehaviour
         mult_text.text = "x" + mult.ToString();
     }
     
+
+    public void UpdateLife(int HP)
+    {
+        for (int i = 0; i < LifeIcons.Length; i++)
+        {
+            LifeIcons[i].SetActive(false);
+        }
+
+        for (int i = 0; i < HP; i++)
+        {
+            LifeIcons[i].SetActive(true);
+        }
+    }
+
 }

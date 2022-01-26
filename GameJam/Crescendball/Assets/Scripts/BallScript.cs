@@ -88,7 +88,7 @@ public class BallScript : MonoBehaviour
             nbrOfInvincincibleBounces++;
             multiplierDuo++;
             Transform transform = other.gameObject.GetComponent<Transform>();
-            if(nbrOfInvincincibleBounces >= 2)
+            if(nbrOfInvincincibleBounces >= 3)
             {
                 Physics2D.IgnoreLayerCollision(3, 7, false);
                 sprite.color = spriteColor;
