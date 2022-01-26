@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3569760645857013428}
   - component: {fileID: 3569760645857013431}
   - component: {fileID: 432182087}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ball
   m_TagString: Ball
   m_Icon: {fileID: 0}
@@ -94,6 +94,7 @@ MonoBehaviour:
   originalSpeed: {x: 2, y: -2}
   lastGoodVel: {x: 0, y: 0}
   centerTransform: {fileID: 0}
+  multiplierDuo: 1
 --- !u!95 &432182087
 Animator:
   serializedVersion: 3
@@ -123,7 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2483112497822279688}
   - component: {fileID: 5874062488696036566}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
