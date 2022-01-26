@@ -71,7 +71,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: -1
   m_Time: 0.4
   m_Parameters:
     serializedVersion: 3
@@ -5031,6 +5031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 3569760645857013385}
   interfaceScore: {fileID: 0}
+  cam: {fileID: 0}
   force: 5
   speed: 0
   countRebond: 0

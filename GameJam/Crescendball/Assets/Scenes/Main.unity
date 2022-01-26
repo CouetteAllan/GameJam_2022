@@ -179,6 +179,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 519420030}
+    - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
       propertyPath: interfaceScore
       value: 
       objectReference: {fileID: 1201177810}
@@ -216,6 +220,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1260622175, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 519420028}
     - target: {fileID: 2081877392, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -278,6 +286,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5055722654380712738, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949116259568492388, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
+      propertyPath: VelocityModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949116259568492388, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
+      propertyPath: VelocityModule.radial.scalar
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949116259568492388, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
+      propertyPath: VelocityModule.orbitalZ.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949116259568492388, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.64705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949116259568492388, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
+      propertyPath: VelocityModule.orbitalOffsetZ.scalar
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6967877867649576279, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
@@ -647,7 +675,7 @@ Animator:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6aa71dd5a3f121349b336c92b6a631f0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 556396c1ddeca554cbc68100bc2307b9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

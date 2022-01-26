@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: streetStyleGradient
   m_EditorClassIdentifier: 
   colorMode: 3
-  topLeft: {r: 1, g: 0.7527362, b: 0, a: 1}
-  topRight: {r: 1, g: 0, b: 0, a: 1}
-  bottomLeft: {r: 1, g: 0.75294125, b: 0, a: 1}
-  bottomRight: {r: 1, g: 0, b: 0, a: 1}
+  topLeft: {r: 1, g: 0.07058824, b: 0.07058824, a: 1}
+  topRight: {r: 1, g: 0.07058824, b: 0.07058824, a: 1}
+  bottomLeft: {r: 0.24007656, g: 0.30026165, b: 0.7830189, a: 1}
+  bottomRight: {r: 0.07058823, g: 0.42553353, b: 1, a: 1}

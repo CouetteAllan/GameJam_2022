@@ -13,6 +13,7 @@ public class HitZoneScript : MonoBehaviour
     private ParticleSystem particles;
     private ParticleSystem particlesHomerun;
     private ParticleSystem particlesBall;
+    private CamShake camShake;
 
     private void Awake()
     {
@@ -23,7 +24,7 @@ public class HitZoneScript : MonoBehaviour
     }
     void Start()
     {
-
+        camShake = GameObject.FindGameObjectWithTag("GameManager").GetComponent<CamShake>();
         arrowSprite = arrow.GetComponentInChildren<SpriteRenderer>();
         arrowSprite.enabled = false;
     }
@@ -51,6 +52,7 @@ public class HitZoneScript : MonoBehaviour
             {
                 AudioManager.instance.Play("Homerun");
                 particlesHomerun.Play();
+                camShake.Shake();
                 stopDuration += 0.4f;
             }
             else
