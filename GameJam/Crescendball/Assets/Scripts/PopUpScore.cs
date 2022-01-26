@@ -10,6 +10,7 @@ public class PopUpScore : MonoBehaviour
     private float timerMax = 0.6f;
     private float timer;
     private Vector2 moveDir;
+    private bool player = false;
 
     private Color textColor;
     private void Awake()
@@ -51,6 +52,7 @@ public class PopUpScore : MonoBehaviour
             textColor = Color.red;
             if (jackpot)
             {
+                player = jackpot;
                 text.fontSize = 14;
                 timerMax = 1.2f;
                 timer = 1.2f;
@@ -72,16 +74,20 @@ public class PopUpScore : MonoBehaviour
 
         if(timer > timerMax * .5f)
         {
-            float increaseScaleAmount = 1f;
+            float increaseScaleAmount = 1.2f;
             transform.localScale += Vector3.one * increaseScaleAmount * Time.deltaTime;
         }
         else
         {
-            float decreaseScaleAmount = 1f;
+            float decreaseScaleAmount = 1.2f;
             transform.localScale -= Vector3.one * decreaseScaleAmount * Time.deltaTime;
         }
 
-
+        if (player)
+        {
+            textColor += new Color(((-255 / 255) / timerMax) * Time.deltaTime, ((255 / 255) / timerMax) * Time.deltaTime, 0);
+            text.color = textColor;
+        }
         timer -= Time.deltaTime;
         if(timer <= 0)
         {

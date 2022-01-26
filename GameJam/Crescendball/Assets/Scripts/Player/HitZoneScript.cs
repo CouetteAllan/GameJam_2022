@@ -81,7 +81,15 @@ public class HitZoneScript : MonoBehaviour
             ball.multiplierDuo = 1;
             int totalScore = 100 * ((int)ball.multiplier * 2);
             GameManager.Instance.SetScore(GameManager.Instance.GetScore() + totalScore);
-            PopUpScore.Create(GameManager.Instance.GetPlayer().transform.position + Vector3.up * 1.2f, totalScore, (int)ball.multiplier);
+            if(ball.multiplier >= 10)
+            {
+                PopUpScore.Create(GameManager.Instance.GetPlayer().transform.position + Vector3.up * 1.2f, totalScore, (int)ball.multiplier,true);
+
+            }
+            else
+            {
+                PopUpScore.Create(GameManager.Instance.GetPlayer().transform.position + Vector3.up * 1.2f, totalScore, (int)ball.multiplier);
+            }
         }
         
         ball.GetComponent<Rigidbody2D>().velocity = dir * magnitude * 1.25f;

@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336970669}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.004, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3569760645857013429}
@@ -71,7 +71,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 7
   m_Time: 0.4
   m_Parameters:
     serializedVersion: 3
@@ -81,21 +81,21 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.6104984
-        inSlope: -1.5570707
-        outSlope: -1.5570707
+        value: 0.7547169
+        inSlope: -0.30348882
+        outSlope: -0.30348882
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.114754096
+        outWeight: 0.18650794
       - serializedVersion: 3
         time: 1
-        value: 0
-        inSlope: -0.04278901
-        outSlope: -0.04278901
+        value: 0.12263575
+        inSlope: 0.04949807
+        outSlope: 0.04949807
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.17704916
+        inWeight: 0.19047618
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -103,8 +103,8 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 0.46274513, b: 0.09019608, a: 1}
-      key1: {r: 1, g: 0.46274513, b: 0.09019608, a: 0.41568628}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key1: {r: 1, g: 0.46274513, b: 0.09019608, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0.41568628}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -119,8 +119,8 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
-      atime2: 0
+      atime1: 32382
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
@@ -128,8 +128,8 @@ TrailRenderer:
       atime7: 0
       m_Mode: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    numCornerVertices: 13
+      m_NumAlphaKeys: 3
+    numCornerVertices: 10
     numCapVertices: 10
     alignment: 0
     textureMode: 0
