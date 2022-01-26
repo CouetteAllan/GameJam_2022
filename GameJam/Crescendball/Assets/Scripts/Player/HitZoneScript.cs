@@ -10,10 +10,14 @@ public class HitZoneScript : MonoBehaviour
     private float timer = 0.4f;
     public GameObject arrow;
     private SpriteRenderer arrowSprite;
+    private ParticleSystem particles;
+    private ParticleSystem particlesHomerun;
 
     private void Awake()
     {
         arrow.transform.position = this.transform.position;
+        particles = GameObject.Find("HitZone/Particles_NormalHit").GetComponent<ParticleSystem>();
+        particlesHomerun = GameObject.Find("HitZone/Particles_Homerun").GetComponent<ParticleSystem>();
     }
     void Start()
     {
@@ -44,6 +48,7 @@ public class HitZoneScript : MonoBehaviour
             if (ball.multiplier >= 10)
             {
                 AudioManager.instance.Play("Homerun");
+                particlesHomerun.Play();
                 stopDuration += 0.4f;
             }
             else
@@ -53,6 +58,7 @@ public class HitZoneScript : MonoBehaviour
             GameManager.Instance.Stop(stopDuration);
             arrowSprite.enabled = true;
 
+            particles.Play();
             StartCoroutine(AimingDir(stopDuration,ball));
             
             player.HitBall = true;
