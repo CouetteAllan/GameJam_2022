@@ -63,7 +63,14 @@ public class PlayerScript : MonoBehaviour
         action.Player.Enable();
         action.Player.Shoot.performed += Shoot_performed;
         action.Player.Movement.performed += Movement_performed;
+        action.Player.Pause.performed += Pause_performed;
     }
+
+    private void Pause_performed(InputAction.CallbackContext obj)
+    {
+        ;
+    }
+
     private void Start()
     {
         GameManager.Instance.SetPlayer(this);

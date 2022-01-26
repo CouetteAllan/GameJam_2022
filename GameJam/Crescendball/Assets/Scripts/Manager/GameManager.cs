@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
         Win,
     }
     private GameStates currentGameState;
-    public GameStates currentGameStates 
+    public GameStates CurrentGameStates 
     {
         get => currentGameState;
         set
@@ -47,6 +47,19 @@ public class GameManager : MonoBehaviour
             switch (currentGameState)
             {
                 case GameStates.MainMenu:
+                    break;
+
+                case GameStates.InGame:
+                    UIManager.Instance.PauseMenu(false);
+                    Time.timeScale = 1.0f;
+                    break;
+
+                case GameStates.Pause:
+                    UIManager.Instance.PauseMenu(true);
+                    Time.timeScale = 0.0f;
+                    break;
+
+                case GameStates.GameOver:
                     break;
 
 
