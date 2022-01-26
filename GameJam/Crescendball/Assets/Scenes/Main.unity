@@ -179,6 +179,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 519420030}
+    - target: {fileID: 3569760645857013431, guid: 6d4358d10562a4f428e0b961ca3e650f, type: 3}
       propertyPath: interfaceScore
       value: 
       objectReference: {fileID: 1201177810}
@@ -278,6 +282,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5055722654380712738, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949116259568492388, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
+      propertyPath: VelocityModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949116259568492388, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
+      propertyPath: VelocityModule.radial.scalar
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949116259568492388, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
+      propertyPath: VelocityModule.orbitalZ.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949116259568492388, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.64705884
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949116259568492388, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
+      propertyPath: VelocityModule.orbitalOffsetZ.scalar
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6967877867649576279, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}

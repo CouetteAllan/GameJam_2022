@@ -51,6 +51,7 @@ public class HitZoneScript : MonoBehaviour
             {
                 AudioManager.instance.Play("Homerun");
                 particlesHomerun.Play();
+
                 stopDuration += 0.4f;
             }
             else

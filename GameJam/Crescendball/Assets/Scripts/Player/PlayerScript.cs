@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
+
 public class PlayerScript : MonoBehaviour
 {
     private CamShake shake;
@@ -73,7 +75,11 @@ public class PlayerScript : MonoBehaviour
 
     private void Start()
     {
-        GameManager.Instance.SetPlayer(this);
+        if(GameManager.Instance.GetPlayer() == null)
+        {
+            GameManager.Instance.SetPlayer(this);
+
+        }
         Shoot(false);
         shake = GameObject.FindGameObjectWithTag("GameManager").GetComponent<CamShake>();
         hitZoneScript = hitZone.GetComponent<HitZoneScript>();

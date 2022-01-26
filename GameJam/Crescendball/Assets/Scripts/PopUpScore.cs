@@ -23,7 +23,7 @@ public class PopUpScore : MonoBehaviour
     {
         Transform scoreTransform = Instantiate(GameManager.Instance.scorePopUp,pos,Quaternion.identity);
         PopUpScore score = scoreTransform.GetComponent<PopUpScore>();
-        score.Setup(scoreAmount,multiplier);
+        score.Setup(scoreAmount,multiplier,jackpot);
         return score;
     }
     public void Setup(int scoreAmount, int multiplier = 20, bool jackpot = false)
@@ -74,21 +74,23 @@ public class PopUpScore : MonoBehaviour
 
         if(timer > timerMax * .5f)
         {
-            float increaseScaleAmount = 1.2f;
+            float increaseScaleAmount = player ? 0.7f : 1.2f;
             transform.localScale += Vector3.one * increaseScaleAmount * Time.deltaTime;
         }
         else
         {
-            float decreaseScaleAmount = 1.2f;
+            float decreaseScaleAmount = player ? 0.7f : 1.2f;
             transform.localScale -= Vector3.one * decreaseScaleAmount * Time.deltaTime;
         }
 
         if (player)
         {
-            textColor += new Color(((-255 / 255) / timerMax) * Time.deltaTime, ((255 / 255) / timerMax) * Time.deltaTime, 0);
+            textColor += new Color(((-255 / 255) / timerMax) * Time.deltaTime, ((255 / 255) / timerMax) * Time.deltaTime, 0,0);
             text.color = textColor;
         }
+
         timer -= Time.deltaTime;
+
         if(timer <= 0)
         {
             float fadeAmount = 3f;
