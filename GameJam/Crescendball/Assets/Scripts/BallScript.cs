@@ -8,7 +8,6 @@ public class BallScript : MonoBehaviour
 {
     [SerializeField] GameObject         ball;
     [SerializeField] Animator           interfaceScore;
-    [SerializeField] Animator           cam;
     Rigidbody2D                         rb;
     public float                        force;
     public float                        speed;
