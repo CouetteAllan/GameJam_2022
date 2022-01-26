@@ -100,9 +100,9 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound " + name + " not found!");
             return;
         }
-        if(name == "Ball")
+        if(name == "Bounce")
         {
-            Debug.Log("qsdf");
+            s.source.pitch = GameManager.Instance.ball.countRebond * 0.045f + 0.09f;
         }
 
         if(name == "Bgm1" || name == "Bgm2" || name== "Bgm3")

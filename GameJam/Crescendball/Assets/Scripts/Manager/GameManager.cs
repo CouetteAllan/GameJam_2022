@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
 
     public Transform scorePopUp;
     private PlayerScript player;
+    public BallScript ball;
     public void SetPlayer(PlayerScript obj)
     {
         player = obj;

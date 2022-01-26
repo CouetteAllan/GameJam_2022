@@ -77,15 +77,16 @@ public class BallScript : MonoBehaviour
 
 
 
-            
-                interfaceScore.SetTrigger("playScore");
+           
+           interfaceScore.SetTrigger("playScore");
 
             
             multiplierDuo++;
             Transform transform = other.gameObject.GetComponent<Transform>();
 
-            
-                  ///// REBONDS /////
+
+            ///// REBONDS /////
+            AudioManager.instance.Play("Bounce");
             if (transform.localScale.x > transform.localScale.y)
             {
                 rb.velocity = new Vector2 (Mathf.Clamp(lastGoodVel.normalized.x * Mathf.Abs(originalSpeed.x) * speed, -55, 55), Mathf.Clamp(-lastGoodVel.normalized.y * Mathf.Abs(originalSpeed.y) * speed, -55, 55)) ;
