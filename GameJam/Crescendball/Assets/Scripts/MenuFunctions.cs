@@ -13,4 +13,8 @@ public class MenuFunctions : MonoBehaviour
     {
         Application.Quit();
     }
+    public void Resume()
+    {
+        GameManager.Instance.currentGameStates = GameManager.GameStates.InGame;
+    }
 }
