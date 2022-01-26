@@ -127,15 +127,6 @@ public class BallScript : MonoBehaviour
                 Debug.Log("vitesse maximale");
 
             }
-            else if (countRebond >= 10 && PlayerHitTheBall)
-            {
-                otheranim = false;
-                countRebond = 0;
-                int totalScore = scoreBonus * ((int)memoire * 2);
-                GameManager.Instance.SetScore(score + totalScore);
-                PopUpScore.Create(rb.position, totalScore, (int)multiplier);
-
-            }
             else
             {
                 interfaceScore.SetBool("playScoreMaxed", false);

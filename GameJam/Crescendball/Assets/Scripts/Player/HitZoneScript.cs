@@ -66,9 +66,7 @@ public class HitZoneScript : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(duration);
         Vector2 dir = player.LastGoodDirection;
-        ball.GetComponent<Rigidbody2D>().velocity = dir * magnitude * 1.25f;
-        arrowSprite.enabled = false;
-        if(dir.x != 0 || dir.y != 0)
+        if(dir.x != 0 && dir.y != 0)
         {
             ball.countRebond = 0;
             ball.multiplierDuo = 1;
@@ -77,6 +75,8 @@ public class HitZoneScript : MonoBehaviour
             PopUpScore.Create(GameManager.Instance.GetPlayer().transform.position + Vector3.up * 1.2f, totalScore, (int)ball.multiplier);
         }
         
+        ball.GetComponent<Rigidbody2D>().velocity = dir * magnitude * 1.25f;
+        arrowSprite.enabled = false;
         
 
     }
