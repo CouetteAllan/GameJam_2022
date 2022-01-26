@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 194745658}
   - component: {fileID: 194745660}
   - component: {fileID: 194745659}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Image (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 208021649}
   - component: {fileID: 208021651}
   - component: {fileID: 208021650}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Image (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 265029352}
   - component: {fileID: 265029354}
   - component: {fileID: 265029353}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Image (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 1126496810}
   - component: {fileID: 1126496812}
   - component: {fileID: 1126496811}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 1135911143}
   - component: {fileID: 1135911145}
   - component: {fileID: 1135911144}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1296357028}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,13 +424,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1696667296}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1696667296
 RectTransform:
   m_ObjectHideFlags: 0
@@ -440,7 +440,7 @@ RectTransform:
   m_GameObject: {fileID: 1696667295}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.4, y: 2.4, z: 2.4}
   m_Children:
   - {fileID: 2143303114685230348}
   - {fileID: 1916478489210684265}
@@ -463,7 +463,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8157480296077156745}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Multiplicateur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 7658707997887674137}
   - component: {fileID: 1355755065204914140}
   - component: {fileID: 4452372260300932216}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mult_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -649,7 +649,7 @@ GameObject:
   - component: {fileID: 8729027566888734403}
   - component: {fileID: 2584158015365544108}
   - component: {fileID: 7057867909901764435}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RestartTXT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -730,8 +730,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -783,7 +783,7 @@ GameObject:
   - component: {fileID: 4928367686829542902}
   - component: {fileID: 415391590574973077}
   - component: {fileID: 778101778005188963}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -830,7 +830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -858,7 +858,7 @@ GameObject:
   - component: {fileID: 7053396095913905961}
   - component: {fileID: 4460616999742006648}
   - component: {fileID: 5779563341100897556}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RestartTXT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -939,8 +939,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -992,7 +992,7 @@ GameObject:
   - component: {fileID: 4161617921955815357}
   - component: {fileID: 825733057024358380}
   - component: {fileID: 1621551957130720051}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1068,7 +1068,7 @@ GameObject:
   - component: {fileID: 2143303114685230348}
   - component: {fileID: 6166253872260295430}
   - component: {fileID: 7778369225042863270}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1115,7 +1115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1144,7 +1144,7 @@ GameObject:
   - component: {fileID: 3402902169695175260}
   - component: {fileID: 8426150889963009577}
   - component: {fileID: 6847506271462463410}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ButtonRestart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1274,7 +1274,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4253607414762459383}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PauseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1290,7 +1290,7 @@ RectTransform:
   m_GameObject: {fileID: 3502522735145180756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.4, y: 2.4, z: 2.4}
   m_Children:
   - {fileID: 4928367686829542902}
   - {fileID: 7424048350134268761}
@@ -1316,7 +1316,7 @@ GameObject:
   - component: {fileID: 5563156291520467773}
   - component: {fileID: 5822560503496687080}
   - component: {fileID: 3040407384026147462}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Score_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1469,7 +1469,7 @@ GameObject:
   - component: {fileID: 3768958234880081578}
   - component: {fileID: 4380137583542546496}
   - component: {fileID: 1932614168790733190}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ResumeTXT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1550,8 +1550,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1604,7 +1604,7 @@ GameObject:
   - component: {fileID: 2375961444147796048}
   - component: {fileID: 2280761065034784250}
   - component: {fileID: 2486905225378757048}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ButtonQuit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1737,7 +1737,7 @@ GameObject:
   - component: {fileID: 7953824049139894309}
   - component: {fileID: 5726782386396888960}
   - component: {fileID: 8386356406890433649}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ButtonRestart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1869,7 +1869,7 @@ GameObject:
   - component: {fileID: 7424048350134268761}
   - component: {fileID: 2384117415625449569}
   - component: {fileID: 3951015851458787139}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PauseText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2004,7 +2004,7 @@ GameObject:
   - component: {fileID: 7617080305721621704}
   - component: {fileID: 2593132726804117517}
   - component: {fileID: 2278427296899541449}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ButtonResume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2134,7 +2134,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4972119305545199977}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2173,7 +2173,7 @@ GameObject:
   - component: {fileID: 8569214082489999688}
   - component: {fileID: 8569214082489999689}
   - component: {fileID: 8569214082489999690}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2274,7 +2274,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8569214082545463786}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Interface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2307,7 +2307,7 @@ GameObject:
   - component: {fileID: 729093928990532946}
   - component: {fileID: 6280315061011731115}
   - component: {fileID: 8745171736453060688}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: QuitTXT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2388,8 +2388,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2441,7 +2441,7 @@ GameObject:
   - component: {fileID: 1916478489210684265}
   - component: {fileID: 1631282554133198072}
   - component: {fileID: 5816758387196794970}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameOverTXT
   m_TagString: Untagged
   m_Icon: {fileID: 0}

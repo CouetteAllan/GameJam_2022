@@ -15,6 +15,6 @@ public class MenuFunctions : MonoBehaviour
     }
     public void Resume()
     {
-        GameManager.Instance.currentGameStates = GameManager.GameStates.InGame;
+        GameManager.Instance.CurrentGameStates = GameManager.GameStates.InGame;
     }
 }
