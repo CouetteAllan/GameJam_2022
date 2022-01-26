@@ -188,6 +188,7 @@ public class PlayerScript : MonoBehaviour
             StartCoroutine(Fade(1.8f));
             ball.multiplier = 1;
             ball.multiplierDuo = 1;
+            ball.speed = 6;
         }
     }
 
@@ -200,7 +201,6 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSecondsRealtime(duration);
 
         anim.SetLayerWeight(1, 0);
-        this.GetComponent<BoxCollider2D>().enabled = true;
         Physics2D.IgnoreLayerCollision(3, 7, false);
     }
 

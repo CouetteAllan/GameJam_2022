@@ -45,10 +45,8 @@ public class HitZoneScript : MonoBehaviour
 
             BallScript ball = collision.gameObject.GetComponent<BallScript>();
             StartCoroutine(AimingDir(stopDuration,ball));
-            int score = GameManager.Instance.GetScore();
-            GameManager.Instance.SetScore( score += 200);
             player.HitBall = true;
-            ball.PlayerHitTheBall = true;
+            //ball.PlayerHitTheBall = true;
         }
     }
 
@@ -60,10 +58,15 @@ public class HitZoneScript : MonoBehaviour
         Vector2 dir = player.LastGoodDirection;
         ball.GetComponent<Rigidbody2D>().velocity = dir * magnitude * 1.25f;
         arrowSprite.enabled = false;
-        ball.countRebond = 0;
-        int totalScore = 100 * ((int)ball.multiplier * 2);
-        GameManager.Instance.SetScore(GameManager.Instance.GetScore() + totalScore);
-        PopUpScore.Create(GameManager.Instance.GetPlayer().transform.position + Vector3.up * 2, totalScore, (int)ball.multiplier);
+        if(dir.x != 0 || dir.y != 0)
+        {
+            ball.countRebond = 0;
+            ball.multiplierDuo = 1;
+            int totalScore = 100 * ((int)ball.multiplier * 2);
+            GameManager.Instance.SetScore(GameManager.Instance.GetScore() + totalScore);
+            PopUpScore.Create(GameManager.Instance.GetPlayer().transform.position + Vector3.up * 1.2f, totalScore, (int)ball.multiplier);
+        }
+        
 
     }
 
