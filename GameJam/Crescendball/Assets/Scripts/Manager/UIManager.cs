@@ -47,14 +47,16 @@ public class UIManager : MonoBehaviour
 
     public void PauseMenu(bool active)
     {
-        pauseMenuObj.SetActive(active);
         eventSystem.firstSelectedGameObject = pauseMenuFirstSelectable;
+        pauseMenuFirstSelectable.GetComponent<Button>().Select();
+        pauseMenuObj.SetActive(active);
     }
 
     public void GameOverPanel(bool active)
     {
-        gameOverPanelObj.SetActive(active);
         eventSystem.firstSelectedGameObject = gameOverFirstSelectable;
+        gameOverFirstSelectable.GetComponent<Button>().Select();
+        gameOverPanelObj.SetActive(active);
 
     }
 
