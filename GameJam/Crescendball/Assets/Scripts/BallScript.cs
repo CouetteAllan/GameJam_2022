@@ -7,7 +7,8 @@ using TMPro;
 public class BallScript : MonoBehaviour
 {
     [SerializeField] GameObject         ball;
-    [SerializeField] Animator         interfaceScore;
+    [SerializeField] Animator           interfaceScore;
+    [SerializeField] Animator           cam;
     Rigidbody2D                         rb;
     public float                        force;
     public float                        speed;
@@ -103,10 +104,13 @@ public class BallScript : MonoBehaviour
                 if(lastGoodVel.y < rb.velocity.y)
                 {
                     anim.SetTrigger("Splash Up");
+                    cam.SetTrigger("CamShakeTop");
                 }
                 else
                 {
                     anim.SetTrigger("Splash Down");
+                    cam.SetTrigger("CamShakeBot");
+
                 }
 
                 anim.SetFloat("Speed", speed / 2);
@@ -118,10 +122,13 @@ public class BallScript : MonoBehaviour
                 if (lastGoodVel.x < rb.velocity.x)
                 {
                     anim.SetTrigger("Splash Right");
+                    cam.SetTrigger("CamShakeRight");
+
                 }
                 else
                 {
                     anim.SetTrigger("Splash Left");
+                    cam.SetTrigger("CamShakeLeft");
                 }
             }
 
