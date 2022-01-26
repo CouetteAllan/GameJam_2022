@@ -51,7 +51,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        int idx = /*UnityEngine.Random.Range(0, 3);*/ 2;
+        int idx = UnityEngine.Random.Range(0, 3);
         switch (idx)
         {
             case 0:
