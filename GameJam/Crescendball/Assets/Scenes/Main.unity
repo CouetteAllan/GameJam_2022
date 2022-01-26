@@ -220,14 +220,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1260622175, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 519420028}
-    - target: {fileID: 2081877392, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5055722654366966272, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
       propertyPath: m_Name
       value: Player
@@ -276,42 +268,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5055722654366966524, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
-      propertyPath: m_Size.y
-      value: 0.3050779
-      objectReference: {fileID: 0}
-    - target: {fileID: 5055722654366966524, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.02070123
-      objectReference: {fileID: 0}
-    - target: {fileID: 5055722654380712738, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6949116259568492388, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
-      propertyPath: VelocityModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6949116259568492388, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
-      propertyPath: VelocityModule.radial.scalar
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6949116259568492388, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
-      propertyPath: VelocityModule.orbitalZ.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6949116259568492388, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.a
-      value: 0.64705884
-      objectReference: {fileID: 0}
-    - target: {fileID: 6949116259568492388, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
-      propertyPath: VelocityModule.orbitalOffsetZ.scalar
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6967877867649576279, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 5055722654532106641, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c274f68b7b2f2824fb5da48a074e04fa, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff4ce33c050337e4b9a00d46d23a7779, type: 3}
 --- !u!1 &265029351 stripped

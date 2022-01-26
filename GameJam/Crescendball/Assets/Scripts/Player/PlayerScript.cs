@@ -33,6 +33,8 @@ public class PlayerScript : MonoBehaviour
     private HitZoneScript hitZoneScript;
     public PlayerInputAction action;
     private Animator anim;
+    public Sprite[] sprites;
+    private SpriteRenderer playerSprite;
 
     Vector2 lastGoodDirection;
     public Vector2 LastGoodDirection { get => lastGoodDirection; set => lastGoodDirection = value; }
@@ -66,6 +68,7 @@ public class PlayerScript : MonoBehaviour
         action.Player.Shoot.performed += Shoot_performed;
         action.Player.Movement.performed += Movement_performed;
         action.Player.Pause.performed += Pause_performed;
+        playerSprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Pause_performed(InputAction.CallbackContext obj)
@@ -157,7 +160,8 @@ public class PlayerScript : MonoBehaviour
             Shoot(true); //frapper la balle
             timerCooldown = hitBall ? 0.3f : 1.0f;
             hitTimer = 0.5f;
-            AudioManager.instance.Play("PlayerEffort"); 
+            AudioManager.instance.Play("PlayerEffort");
+            playerSprite.sprite = sprites[0];
         }
     }
 
@@ -174,7 +178,6 @@ public class PlayerScript : MonoBehaviour
     {
         hitZone.GetComponent<BoxCollider2D>().enabled = hit;
         hitZone.GetComponent<SpriteRenderer>().enabled = hit;
-
 
     }
 
@@ -208,6 +211,7 @@ public class PlayerScript : MonoBehaviour
             ball.multiplier = 1;
             ball.multiplierDuo = 1;
             ball.speed = 6;
+            playerSprite.sprite = sprites[4];
         }
     }
 
@@ -221,6 +225,7 @@ public class PlayerScript : MonoBehaviour
 
         anim.SetLayerWeight(1, 0);
         Physics2D.IgnoreLayerCollision(3, 7, false);
+        playerSprite.sprite = sprites[0];
     }
 
     private void OnDrawGizmosSelected()

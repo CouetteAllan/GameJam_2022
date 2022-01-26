@@ -5031,7 +5031,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 3569760645857013385}
   interfaceScore: {fileID: 0}
-  cam: {fileID: 0}
   force: 5
   speed: 0
   countRebond: 0
@@ -5214,7 +5213,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b5116f724ef548249a7210fe04d8802a, type: 3}
   m_Color: {r: 1, g: 0.46165803, b: 0.08962262, a: 1}
   m_FlipX: 0
   m_FlipY: 0

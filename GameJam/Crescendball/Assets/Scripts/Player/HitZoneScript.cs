@@ -10,6 +10,7 @@ public class HitZoneScript : MonoBehaviour
     private float timer = 0.4f;
     public GameObject arrow;
     private SpriteRenderer arrowSprite;
+    private SpriteRenderer playerSprite;
     private ParticleSystem particles;
     private ParticleSystem particlesHomerun;
     private ParticleSystem particlesBall;
@@ -21,6 +22,7 @@ public class HitZoneScript : MonoBehaviour
         particles = GameObject.Find("HitZone/Particles_NormalHit").GetComponent<ParticleSystem>();
         particlesHomerun = GameObject.Find("HitZone/Particles_Homerun").GetComponent<ParticleSystem>();
         particlesBall = GameObject.Find("Ball/Particles").GetComponent<ParticleSystem>();
+        playerSprite = GameObject.Find("Player/PlayerSprite").GetComponent<SpriteRenderer>();
     }
     void Start()
     {
@@ -46,6 +48,7 @@ public class HitZoneScript : MonoBehaviour
     {
         if(collision.tag == "Ball")
         {
+            playerSprite.sprite = player.sprites[1];
             BallScript ball = collision.gameObject.GetComponent<BallScript>();
             float stopDuration = 0.8f;
             if (ball.multiplier >= 10)
@@ -53,6 +56,7 @@ public class HitZoneScript : MonoBehaviour
                 AudioManager.instance.Play("Homerun");
                 particlesHomerun.Play();
                 camShake.Shake();
+                playerSprite.color = Color.red;
                 stopDuration += 0.4f;
             }
             else
@@ -96,7 +100,7 @@ public class HitZoneScript : MonoBehaviour
         
         ball.GetComponent<Rigidbody2D>().velocity = dir * magnitude * 1.25f;
         arrowSprite.enabled = false;
-        
+        playerSprite.sprite = player.sprites[3];
 
     }
 
