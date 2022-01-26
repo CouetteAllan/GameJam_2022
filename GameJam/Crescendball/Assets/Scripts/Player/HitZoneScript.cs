@@ -39,14 +39,24 @@ public class HitZoneScript : MonoBehaviour
     {
         if(collision.tag == "Ball")
         {
+            BallScript ball = collision.gameObject.GetComponent<BallScript>();
             float stopDuration = 0.8f;
+            if (ball.multiplier >= 10)
+            {
+                AudioManager.instance.Play("Homerun");
+                stopDuration += 0.4f;
+            }
+            else
+            {
+                AudioManager.instance.Play("BatHit");
+            }
             GameManager.Instance.Stop(stopDuration);
             arrowSprite.enabled = true;
 
-            BallScript ball = collision.gameObject.GetComponent<BallScript>();
             StartCoroutine(AimingDir(stopDuration,ball));
+            
             player.HitBall = true;
-            //ball.PlayerHitTheBall = true;
+            ball.PlayerHitTheBall = true;
         }
     }
 
@@ -66,6 +76,7 @@ public class HitZoneScript : MonoBehaviour
             GameManager.Instance.SetScore(GameManager.Instance.GetScore() + totalScore);
             PopUpScore.Create(GameManager.Instance.GetPlayer().transform.position + Vector3.up * 1.2f, totalScore, (int)ball.multiplier);
         }
+        
         
 
     }
