@@ -102,7 +102,7 @@ public class AudioManager : MonoBehaviour
         }
         if(name == "Bounce")
         {
-            s.source.pitch = GameManager.Instance.ball.countRebond * 0.045f + 0.09f;
+            //s.source.pitch = GameManager.Instance.ball.countRebond * 0.045f + 0.09f;
         }
 
         if(name == "Bgm1" || name == "Bgm2" || name== "Bgm3")
